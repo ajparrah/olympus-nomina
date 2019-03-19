@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Conceptos</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="icon" type="image/png" href="img/UFT.png"> 
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!--ESTILOS PROPIOS-->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="img/olimpus.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="navbarNav">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link mr-5" id="nav-color-wh" href="#">@Administrador</a>
+                    <a class="nav-item nav-link mr-1" id="nav-color-wh"href="#"><i class="fas fa-user"></i></a>
+                    <a class="nav-item nav-link mr-1" id="nav-color-wh"href="#"><i class="fas fa-cog"></i></a>
+                    <a class="nav-item nav-link mr-1" id="nav-color-wh"href="#"><i class="fas fa-power-off"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!--<nav class="col-md-2 d-none d-md-block bg-light sidebar">-->
+            <!--MENU IZQUIERDA-->
+            <nav class="col-lg-2 col-sm-12 col-xs-12" id="sidebar-nav"> 
+                <div id="sidebar-title">
+                    <a href="menu.html">
+                        <h3>Menu Principal</h3>
+                    </a>
+                </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de Datos Básicos</a>
+                    <ul class="collapse list-unstyled" id="submenu">
+                        <li>
+                            <a href="registro.html">Registro de Docente</a>
+                        </li>
+
+                        <li>
+                             <a href="sede.html">Sede</a>                       
+                        </li>
+
+                        <li>
+                            <a href="dcnato.html">Decanato</a>
+                        </li>
+
+                        <li>    
+                            <a href="escuela.html">Escuelas</a>                 
+                        </li>   
+                        <li>
+                            <a href="banco.html">Bancos</a>
+                        </li>                      
+                        
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de Nomina</a>
+                    <ul class="collapse list-unstyled" id="submenu2">
+                        <li>
+                            <li>
+                             <a href="conc.html">Conceptos de pago</a>
+                            </li>
+                            <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Nomina Docente</a>
+                            <ul class="collapse list-unstyled" id="submenu3">
+                                <li>
+                                    <a href="prend.html">Pre Nomina</a>
+                                </li>
+                                <li>
+                                    <a href="nomnd.html">Revision de Nomina</a>
+                                </li>
+                                <li>
+                                    <a href="postnd.html">Cierre de Nomina</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#submenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Nomina Especial</a>
+                            <ul class="collapse list-unstyled" id="submenu4">
+                                <li>
+                                    <a href="prene.html">Pre Nomina</a>
+                                </li>
+                                <li>
+                                    <a href="nomne.html">Revisión de Nomina</a>
+                                </li>
+                                <li>
+                                    <a href="adicional_generar.html">Cierre de Nomina</a>
+                                </li>
+                            </ul>
+                        </li>                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="#submenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reportes</a>
+                    <ul class="collapse list-unstyled" id="submenu6">
+                        <li>
+                           <a href="#submenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Área Docente</a>
+                            <ul class="collapse list-unstyled" id="submenu7">
+                                <li>
+                                    <a href="replapo.html">Por Lapso</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#submenu8" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Área Especial</a>
+                            <ul class="collapse list-unstyled" id="submenu8">
+                                <li>
+                                    <a href="replapo.html">Por Lapso</a>
+                                </li>
+                            </ul>
+                        </li>                     
+                    </ul>                        
+                </li>
+                <li>
+                    <a href="https:/www.google.com.ve" >Salir</a>
+                </li>
+            </ul>
+            </nav>
+
+        <div class="col-lg-10">
+            <div class="row">
+                    <div class="col-lg-12">
+                        <h2 align="center">Modificar Pre Nómina Especial</h2>
+                    </div>
+
+                    <div class="container">
+                        <br>
+                        <div class="form-row">
+                            <div class="col-1"></div>
+                            <div class="col-1">
+                                <div class="text-center">
+                                    <label class="col-form-label">Cedula:</label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" class="form-control" placeholder="Cedula" readonly>
+                            </div>
+                            <div class="col-2">
+                                <div class="text-center">
+                                    <label class="col-form-label">Nombre y Apellido:</label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" class="form-control" placeholder="Nombre y Apellido" readonly>
+                            </div>
+                            <div class="col-1">
+                                <div class="text-center">
+                                    <label class="col-form-label">Escalafon:</label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" class="form-control" placeholder="Escalafon" readonly>
+                            </div> 
+                        </div>          
+                        <br>
+                    <div class="col-lg-12">
+                        <h2 align="center">Conceptos:</h2>
+                    </div>                    
+                        <div class="form-row">
+                            <div class="col-1"></div>
+                            <div class="col-2">
+                                <div class="text-center">
+                                    <label class="col-form-label">Asignaciones</label>
+                                </div>
+                            </div>
+                               <div class="col-1">
+                            <button type="submit" class="btn btn-danger">Agregar</button>
+                        </div>
+                            <div class="col-3">
+                                <div class="text-center">
+                                    <label class="col-form-label">Cantidad</label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="text-center">
+                                    <label class="col-form-label">Monto</label>
+                                </div>
+                            </div>                   
+                        </div> 
+                        <div class="form-row">
+                            <div class="col-1"></div>
+                            <div class="col-3">
+                            <select class="form-control">
+                            <option> Seleccione</option>
+                            <option> Jurado</option>
+                            <option> Tutorias Trabajo de Grado</option>
+                            <option> Seminarios</option>
+                            <option> Tutorias de Pasantias</option>
+                            <option> Formación Tut de Pasantias Online</option>
+                            <option> Horas de Servicio Comunitario</option>
+                            <option> Pruebas Extraordinarias</option>
+                            <option> Taller de Formacion de Tutores</option>
+                        </select>
+                    </div>
+                            <div class="col-3">
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-3">
+                                <input type="text" class="form-control" placeholder="Monto Asignacion" readonly>
+                            </div>
+                            <div class="col-1">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </div>                           
+                        </div>
+                        <br>
+                        <div class="form-row">
+                             <div class="col-5"></div>
+                            <div class="col-2">
+                                <div class="text-right">
+                                    <label class="col-form-label">Total a Pagar</label>
+                                </div>
+                            </div> 
+                              <div class="col-3">
+                                <input type="text" class="form-control" placeholder="Total a Pagar" readonly>
+                            </div>                      
+                        </div>              
+                
+                        <br>
+                    <div class="form-row">
+                        <div class="col-3"></div>
+                        <div class="col-2">
+                            <button class="btn btn-danger btn-lg btn-block" type="submit">Guardar</button>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-danger btn-lg btn-block" type="submit">Limpiar</button>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-danger btn-lg btn-block" type="submit">Atras</button>
+                        </div>                        
+                    </div>
+                    <br>
+                    <br>                    
+                </div>
+            </div>
+        </div>
+    
+    
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="js/jquery.js"></script>
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
+    <script>
+        $(document).ready(function () {
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

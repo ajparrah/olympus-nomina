@@ -1,0 +1,174 @@
+<html lang="es">
+   <title>Recibo Personal</title>
+<head>
+	<link rel="stylesheet" href="css/recibo.css">
+	 <link rel="icon" type="image/png" href="img/UFT.png"> <!-- logo -->
+	   <style type="text/css">
+<!--
+.btn-danger{
+	background: #a00a1f;
+	border-color: #a00a1f;
+}
+.btn-danger1 {	background: #a00a1f;
+	border-color: #a00a1f;
+}
+-->
+    </style>
+</head>
+
+<body>
+<div id="botonera">
+		<button onClick="javascript:window.print();"class="btn btn-danger">Imprimir</button>
+		</div>
+
+	<div id="page1">
+
+		<div class="bordeRecibo">
+			<header>
+				
+				<!-- Lado Izquierdo -->
+				<div class="column left">
+					<div class="container">
+						<div class="row text-left">
+						
+							<img src="img/UFT.PNG" alt="UFT" width="85" height="85">
+						</div>
+						<div class="row text-left negrita h3">Universidad Fermin Toro</div>
+						<div class="row text-left h3">Educacion para los valores humanos</div>
+						<div class="row text-left h3">J-30025515-8</div>
+						<div class="row text-left h3">Cabudare 3023, Lara</div>
+						<div class="row text-left h3">0251-7100131</div>
+						
+					</div>
+				</div>
+				
+				<!-- Lado Central -->
+				<div class="column center text-center">
+					<span id="tipoComprobante">X</span> 
+					<br>
+					<span id="leyendaTipoComprobante" class="preimpreso">DOCUMENTO<br>NO VALIDO<br>COMO<br>FACTURA<br><br><br>RECIBO DE PAGO
+					</span> 
+				</div>
+				
+				<!-- Lado Derecho -->
+				<div class="column right">
+					<div class="container">
+						<div id="lblComprobante" class="row text-center negrita h1">RECIBO</div>
+						<div id="lblNroCmp" class="row text-center negrita h2"><span class="preimpreso">Nro</span> 0001 - 00000168
+						</div>
+						<div class="row text-center h3">ORIGINAL</div>
+						<div class="row text-center h3">NOMINA</div>
+						<br>
+						<!--<div class="row text-center h3">&nbsp;</div>-->
+						<div class="row text-left h3">FECHA DE INICIO<span class="pull-right">01/09/2018</span>
+						<div class="row text-left h3">FECHA DE FIN<span class="pull-right">30/09/2018</span></div>
+						<!--<div class="row text-left h3">INGRESOS BRUTOS Bs.S <span class="pull-right">1.600</span></div>-->
+						</div>
+					</div>
+				</div>
+			</header>
+			
+			<!-- DATOS PERSONALES-->
+			<section>
+				<table width="100%">
+					<tr>
+						<td width="30%">TRABAJADOR:</td>
+						<td width="70%">PABLO PEREZ</td>
+					</tr>
+				</table>
+				<table>
+					<tr>						
+						<td width="5%">CI:</td>
+						<td width="15%">7543454</td>
+						<td width="30%">SALARIO BASICO:</td>
+						<td width="10%">18.000,00</td>
+						<td width="30%" align="right">FECHA INGRESO:</td>
+						<td width="10%">30/03/1999</td>
+					</tr>
+				</table>
+				<br>
+				<br>
+
+				<table style="width:100%">
+  					<tr>
+    					<th width="65%" style=" font-size: 11px
+    					;">CONCEPTO</th>
+    					<th width="5%" style=" font-size: 11px
+    					;">CANT</th> 
+    					<th width="15%" style=" font-size: 11px
+    					;">ASIGNACIONES</th>
+    					<th width="15%" style=" font-size: 11px
+    					;">DEDUCCIONES</th>
+  					</tr>
+  					<tr>
+    					<td>HORAS TRABAJADAS PRE-GRADO</td>
+    					<td align="center">5</td>
+    					<td align="right">5.000,00</td>
+    					<td align="right">0</td>
+  					</tr>
+  					<tr>
+    					<td>HORAS TRABAJADAS POST-GRADO</td>
+    					<td align="center">5</td>
+    					<td align="right">8.000,00</td>
+    					<td align="right">0</td>
+  					</tr>
+  					<tr>
+    					<td>LEY DE POLITICA HABITACIONAL</td>
+    					<td align="center">1</td>
+    					<td align="right">0</td>
+    					<td align="right">130,00</td>
+  					</tr>
+				</table>
+				<br>
+				<table align="right">
+					<tr>
+						<td align="right">TOTALES:</td>
+						<td>13.000,00</td>
+						<td align="right">130,00</td>
+					</tr>
+					<tr>
+						<td align="right">TOTAL A PAGAR:</td>
+						<td></td>
+						<td><strong>12.870,00</strong></td>
+					</tr>
+					
+
+				</table>
+			</section>
+			<br>
+			
+			<section id="sectionMedioPago">
+				<span class="preimpreso">FORMA DE PAGO</span> 
+				
+				<div class="row">
+					<span>Transferencia Bancaria</span>
+					<span class="pull-right negrita importeEnBolivares"> 12.870,00</span>
+				</div>
+
+				<div class="row">
+					<span class="preimpreso">BANCO:</span>
+					<span>PROVINCIAL</span>
+				</div>
+				<div class="row">
+					<span class="preimpreso">CUENTA #:</span>
+					<span>3010052083</span>
+				</div>
+				<br>
+				<div class="row">
+					<span class="preimpreso"><strong style="font-weight: 100;">DECLARO HABER RECIBIDO CONFORME EL MONTO QUE ME CORRESPONDE PARA EL PERIODO INDICADO Y POR LOS CONCEPTOS ESPECIFICADOS  EN ESTE RECIBO</strong></span>
+				</div>
+				
+			</section>	
+						
+			<footer>
+				
+				<section id="firma">
+					<div id="hr" class="pull-right">&nbsp;</div>
+					<p class="text-right">Firma</p>
+				</section>
+				
+			</footer>
+		</div><!-- bordeRecibo -->
+	</div><!-- Page1 -->
+</body>
+</html>
