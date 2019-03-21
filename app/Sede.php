@@ -16,7 +16,7 @@ class Sede extends Model
 
     protected $fillable = ['nombre', 'direccion'];
 
-
+    
     //Relacion con Decanato
 
     public function decanatos()

@@ -19,6 +19,6 @@ class Decanato extends Model
 
     public function sede()
     {
-    	return $this->belongsTo('App\Sede');
+    	return $this->belongsTo('App\Sede'); 
     }
 }

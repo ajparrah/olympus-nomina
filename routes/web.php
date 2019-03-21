@@ -16,13 +16,20 @@ Route::get('registro-bancario', 'PagesController@registrof3')->name('registrof3'
 
 //SEDE
 Route::resource('sede', 'SedeController');
+
+//DECANATO
+
+Route::resource('decanato', 'DecanatoController');
+
+
+
 //Route::get('/sedes', 'PagesController@sedes')->name('sede');
 //Route::get('/sedes/agregar', 'PagesController@sedes_add')->name('sede-add');
 //Route::get('/sedes/editar', 'PagesController@sedes_edit')->name('sede-edit');
 
 
 
-Route::get('decanatos', 'PagesController@decanatos')->name('decanato');
+//Route::get('decanatos', 'PagesController@decanatos')->name('decanato');
 
 Route::get('escuelas', 'PagesController@escuelas')->name('escuela');
 

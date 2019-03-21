@@ -17,9 +17,8 @@ class CreateSedesTable extends Migration
             $table->increments('cod');
             $table->string('nombre', 64);
             $table->text('direccion');
-
-            
             $table->timestamps();
+
         });
     }
 

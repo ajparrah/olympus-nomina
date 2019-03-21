@@ -70,7 +70,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('decanato') }}">Decanatos</a>
+                            <a href="{{ route('decanato.index') }}">Decanatos</a>
                         </li>
 
                         <li>    

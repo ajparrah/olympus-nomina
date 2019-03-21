@@ -18,7 +18,7 @@ class CreateDecanatosTable extends Migration
             $table->string('nombre', 64);
             $table->string('nombre_decano', 64);
 
-                        
+            $table->timestamps();
             $table->integer('cod_sede')->unsigned();  
 
               
