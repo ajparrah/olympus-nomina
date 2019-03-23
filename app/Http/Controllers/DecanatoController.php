@@ -14,7 +14,7 @@ class DecanatoController extends Controller
     public function index()
     {
         $decanatos = \App\Decanato::All(); //Variable que relaciona con el modelo, trae todo por el ::All
-        
+
         return view('decanato.index', compact('decanatos'));
     }
 

@@ -25,7 +25,9 @@ class CreateDocentesTable extends Migration
             $table->date('fecha_nacimiento');
             $table->string('edo_civil', 64);          
             $table->integer('carga_familiar');
-            $table->integer('cantidad_hijos'); 
+            $table->integer('cantidad_hijos');
+
+            $table->timestamps(); 
             
         });
     }

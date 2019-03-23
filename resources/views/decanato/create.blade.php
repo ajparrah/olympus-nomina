@@ -43,7 +43,7 @@
                             <div class="col-3">
                                 
                                     
-                               {!!Form::select('cod_sede',$sedes->pluck('nombre', 'cod'))!!}
+                               {!!Form::select('cod_sede',$sedes->pluck('nombre', 'cod'),null,['class'=>'form-control'])!!}
                                 
 
                             </div>

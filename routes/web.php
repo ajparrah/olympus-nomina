@@ -4,7 +4,7 @@
 
 Route::get('/', 'PagesController@principal')->name('principal');
 
-Route::get('registro', 'PagesController@registro')->name('registro');
+//Route::get('registro', 'PagesController@registro')->name('registro');
 
 Route::get('docentes-hijos', 'PagesController@hijos')->name('hijos');
 
@@ -20,6 +20,9 @@ Route::resource('sede', 'SedeController');
 //DECANATO
 
 Route::resource('decanato', 'DecanatoController');
+
+//DOCENTE
+Route::resource('docente', 'DocenteController');
 
 
 

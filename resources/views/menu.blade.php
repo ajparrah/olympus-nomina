@@ -28,7 +28,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
-                {!!Html::image('img/UFT.png' , null, ['class'=>'logo'])!!}
+                {!!Html::image('img/olimpus.png' , null, ['class'=>'logo'])!!}
                 <!--<img class="logo" src="img/olimpus.png" alt="">-->
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,7 @@
                     <a href="#submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de Datos Básicos</a>
                     <ul class="collapse list-unstyled" id="submenu">
                         <li>
-                            <a href="{{ route('registro') }}">Docentes</a>
+                            <a href="{{ route('docente.index') }}">Docentes</a>
                         </li>
 
                         <li>
@@ -158,6 +158,11 @@
 
     {!!Html::script('js/jquery.js')!!}
     {!!Html::script('js/bootstrap.min.js')!!}
+    <script type="text/javascript">
+            $('#datetimepicker').datetimepicker({
+                format: 'yyyy-mm-dd'
+            });
+        </script>
 
 	<!--
     <script type="text/javascript" src="js/jquery.js"></script>
