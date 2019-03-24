@@ -9,12 +9,12 @@ class Datoslaborales_docenteController extends Controller
 {
 
 
-	 //   public function index()
-    //{
+	  public function index()
+    {
         
-//    $escuelas = Escuela::with('decanato')->orderby('cod', 'ASC')->paginate(10);
-    //     return view('escuela.index', compact('escuelas'));
-    //  }
+        $datoslaborales_docentes = Datoslaborales_docente::with('docente')->orderby('ced_docente', 'ASC')->paginate(10);
+         return view('datoslaborales_docente.index', compact('datoslaborales_docentes'));
+      }
     //Variable que relaciona con el modelo, trae todo por el ::All
         
 
@@ -40,16 +40,18 @@ class Datoslaborales_docenteController extends Controller
         'cod_escalafon' => $request['cod_escalafon'],
         'cod_banco' =>$request['cod_banco'],   
         ]);
-        return redirect('/docente')->with('confirmacion','store');
+        return redirect('/datoslaborales_docente')->with('confirmacion','store');
     }
 
         public function edit($ced_docente)
     {
         $datoslaborales_docente = \App\Datoslaborales_docente::find($ced_docente);
         $docentes = \App\Docente::all();
+        $escalafons = \App\Escalafon::all();
+        $bancos = \App\Banco::all();
         //return view('sede.edit',compact('sedes'));
 
-        return view('datoslaborales_docente.edit', compact('datoslaborales_docente','docentes'));
+        return view('datoslaborales_docente.edit', compact('datoslaborales_docente','docentes','escalafons','bancos'));
     }
 
     public function update(Request $request, $ced_docente)
@@ -57,21 +59,23 @@ class Datoslaborales_docenteController extends Controller
         $datoslaborales_docente = \App\Datoslaborales_docente::find($ced_docente);
         $datoslaborales_docente->fill($request->all());
         $datoslaborales_docente->save();
-        return redirect('/docente')->with('confirmacion','cambio');
+        return redirect('/datoslaborales_docente')->with('confirmacion','cambio');
     }
 
-    public function show($id)
+    public function show($ced_docente)
     {
         //
+         $datoslaborales_docente = \App\Datoslaborales_docente::find($ced_docente);
+          return view('datoslaborales_docente.show', compact('datoslaborales_docente'));
     }
 
-    public function destroy($cod)
+    public function destroy($ced_docente)
     {
-        $escuela = \App\Escuela::destroy($cod);
+       $datoslaborales_docente = \App\Datoslaborales_docente::destroy($ced_docente);
 
         //$sede->delete();
 
-        return redirect('/escuela')->with('confirmacion','cambio');
+        return redirect('/datoslaborales_docente')->with('confirmacion','cambio');
     }
 
 

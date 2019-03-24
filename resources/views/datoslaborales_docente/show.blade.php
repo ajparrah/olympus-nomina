@@ -34,14 +34,14 @@
                                 {!!Form::label('Escalafon: ')!!}
                             </div>
                             <div class="col-3">                         
-                               {!!Form::select('cod_escalafon',$escalafons->pluck('nombre', 'cod'),null,['class'=>'form-control'])!!}
+                               {!!Form::text('cod_escalafon',null,['class'=>'form-control-plaintext', 'placeholder'=>'Cedula', 'readonly'])!!}
                         </div>
 
                         <div class="col-lg-1">
                             {!!Form::label('Nivel de Instruccion:')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::select('grado_instruccion',['Bachiller' => 'Bachiller', 'Universitario' => 'Universitario','Magister' => 'Magister','Doctorado' => 'Doctorado'],null, ['class'=>'form-control'])!!}
+                            {!!Form::text('grado_instruccion',null,['class'=>'form-control-plaintext', 'placeholder'=>'Cedula', 'readonly'])!!}
                          <br>
                          <br>     
                         </div>
@@ -57,7 +57,7 @@
                             {!!Form::label('Banco: ')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::select('cod_banco',$bancos->pluck('nombre', 'cod'),null,['class'=>'form-control'])!!}
+                            {!!Form::text('$datoslaborales_docente->banco->nombre',null,['class'=>'form-control-plaintext', 'placeholder'=>'Cedula', 'readonly'])!!}
                         </div>
 
 
@@ -66,7 +66,7 @@
                             {!!Form::label('N° de Cuenta: ')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::text('nro_cuenta',null,['class'=>'form-control', 'placeholder'=>'N° de Cuenta'])!!}
+                            {!!Form::text('nro_cuenta',null,['class'=>'form-control-plaintext', 'placeholder'=>'Cedula', 'readonly'])!!}
                         </div>
 
 
@@ -74,7 +74,7 @@
                             {!!Form::label('Tipo de Cuenta:')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::select('tipo_cuenta',['Ahorro' => 'Ahorro', 'Corriente' => 'Corriente'],null, ['class'=>'form-control'])!!}
+                            {!!Form::text('tipo_cuenta',null,['class'=>'form-control-plaintext', 'placeholder'=>'Cedula', 'readonly'])!!}
                         </div>
 
 
@@ -89,7 +89,7 @@
                             {!!Form::label('Estatus:')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::select('estatus',['Contratado' => 'Contratado', 'No Contratado' => 'No Contratado'],null, ['class'=>'form-control'])!!}
+                            {!!Form::text('estatus',null,['class'=>'form-control-plaintext', 'placeholder'=>'Cedula', 'readonly'])!!}
                         </div>
 
                        <div class="col-lg-2" align="center">
@@ -97,15 +97,15 @@
                         </div>
                         <div class="col-lg-3">
                             <!-- Aca va un campo tipo date, el input es solamente una prueba-->
-                        {{ Form::date('fecha_ingreso', new \DateTime(), ['class' => 'form-control']) }}
+                        {!!Form::text('fecha_ingreso',null,['class'=>'form-control-plaintext', 'placeholder'=>'Cedula', 'readonly'])!!}
                         </div>
                     </div>
 
                         <br>
                             <div class="container" align="center">
-                                        <a href="{{ route('docente.index') }}" class="btn btn-danger">Atras</a>
+                                        <a href="{{ route('datoslaborales_docente.index') }}" class="btn btn-danger">Atras</a>
 
-                            {!!Form::submit('Guardar',['class'=>'btn btn-danger'])!!}
+                          
                                     </div>
                            
                     {!! Form::close() !!}  

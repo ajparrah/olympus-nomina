@@ -124,6 +124,7 @@
                         <div class="form-row">
                             <div class="col-12" align="center">
                                 {!!Form::submit('Atras',['class'=>'btn btn-danger'])!!}
+                                {!!Html::decode(link_to_route('datoslaborales_docente.show', '<button type="button" class="btn btn-danger btn">Datos Laborales</button>', $docente->cedula))!!}
                             </div>
                         </div>                          
                     {!! Form::close() !!}

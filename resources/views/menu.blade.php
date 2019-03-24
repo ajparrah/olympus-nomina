@@ -62,7 +62,7 @@
                     <a href="#submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de Datos Básicos</a>
                     <ul class="collapse list-unstyled" id="submenu">
                         <li>
-                            <a href="{{ route('docente.index') }}">Docentes</a>
+                            <a href="{{ route('datoslaborales_docente.index') }}">Docentes</a>
                         </li>
 
                         <li>

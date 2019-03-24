@@ -20,7 +20,37 @@
 
                 {!! Form::open(['route' => 'datoslaborales_docente.store', 'method'=>'POST']) !!}
                   
+                    <div class="form-row">
+
+                        <div class="col-lg-1">
+                            {!!Form::label('CEDULA: ')!!}
                         </div>
+                        <div class="col-lg-3">
+                            {!!Form::text('ced_docente',null,['class'=>'form-control', 'placeholder'=>'Cedula del profesor'])!!}
+                        </div>
+                           
+
+                            <div class="col-1">
+                                {!!Form::label('Escalafon: ')!!}
+                            </div>
+                            <div class="col-3">                         
+                               {!!Form::select('cod_escalafon',$escalafones->pluck('nombre', 'cod'),null,['class'=>'form-control'])!!}
+                        </div>
+
+                        <div class="col-lg-1">
+                            {!!Form::label('Nivel de Instruccion:')!!}
+                        </div>
+                        <div class="col-lg-3">
+                            {!!Form::select('grado_instruccion',['Bachiller' => 'Bachiller', 'Universitario' => 'Universitario','Magister' => 'Magister','Doctorado' => 'Doctorado'],null, ['class'=>'form-control'])!!}
+                         <br>
+                         <br>     
+                        </div>
+                        
+                          
+
+                    </div>                        
+
+
                         <div class="form-row">
 
                         <div class="col-lg-1" align="center">
@@ -51,35 +81,18 @@
 
                     </div>
                     <br>
+
+                    <br>
+
                     <div class="form-row">
-                       
-                        <div class="col-lg-1">
+                         <div class="col-lg-1">
                             {!!Form::label('Estatus:')!!}
                         </div>
                         <div class="col-lg-3">
                             {!!Form::select('estatus',['Contratado' => 'Contratado', 'No Contratado' => 'No Contratado'],null, ['class'=>'form-control'])!!}
                         </div>
-                            <div class="col-1">
-                                {!!Form::label('Escalafones: ')!!}
-                            </div>
-                            <div class="col-3">                         
-                               {!!Form::select('cod_escalafon',$escalafones->pluck('nombre', 'cod'),null,['class'=>'form-control'])!!}
-                        </div>
 
-                        <div class="col-lg-1">
-                            {!!Form::label('Nivel de Instruccion:')!!}
-                        </div>
-                        <div class="col-lg-3">
-                            {!!Form::select('grado_instruccion',['Bachiller' => 'Bachiller', 'Universitario' => 'Universitario','Magister' => 'Magister','Doctorado' => 'Doctorado'],null, ['class'=>'form-control'])!!}
-                        </div>
-
-
-                    </div>
-                    <br>
-
-                    <div class="form-row">
-                       
-                       <div class="col-lg-2">
+                       <div class="col-lg-2" align="center">
                             {!!Form::label('Fecha De Ingreso:')!!}
                         </div>
                         <div class="col-lg-3">
@@ -96,6 +109,6 @@
                                     </div>
                            
                     {!! Form::close() !!}  
-
+                </div>  
 
 @endsection

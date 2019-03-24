@@ -26,33 +26,33 @@
                             </div>
                         @endif
 
-
-                    <div class="container" align="center">
-                        <h2 class="text-center">DATOS PERSONALES</h2>
-                    </div>  
-
-            <table id="docentes" class="table table-striped">
+            <table id="datoslaborales_docentes" class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th class="text-center">Cedula</th>
-                        <th class="text-center">Nombre Completo</th>
-                        <th class="text-center">Email</th>            
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Grado</th>
+                                   
                         <th width="160px" class="text-center"><i class="fas fa-cog"></i></th>  
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($docentes as $docente)
+                    @foreach ($datoslaborales_docentes as $datoslaborales_docente)
                         <tr>
-                            <td class="text-center">{{$docente->cedula}}</td>
-                            <td class="text-center">{{$docente->nombres}} {{$docente->apellidos}}</td> 
-                            <td class="text-center">{{$docente->email}}</td>
+                            <td class="text-center">{{$datoslaborales_docente->ced_docente}}</td>
+                            <td class="text-center">{{$datoslaborales_docente->docente->nombres}} {{$datoslaborales_docente->docente->apellidos}} </td> 
+                             <td class="text-center">{{$datoslaborales_docente->docente->email}}</td>
+                             <td class="text-center">{{$datoslaborales_docente->grado_instruccion}}</td>
+
                          <td>                              
                                         
-                                        {!! Form::open(['route' => ['docente.destroy', $docente->cedula], 'method'=>'DELETE']) !!}
-                                            {!!Html::decode(link_to_route('docente.show', '<i class="fas fa-eye"></i>', $docente -> cedula, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
-                                            {!!Html::decode(link_to_route('docente.edit', '<i class="fas fa-pencil-alt"></i>', $docente -> cedula, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
+                                        {!! Form::open(['route' => ['docente.destroy',$datoslaborales_docente->docente->cedula], 'method'=>'DELETE']) !!}
 
+                                        {!!Html::decode(link_to_route('docente.show', '<i class="fas fa-eye"></i>', $datoslaborales_docente->docente->cedula, ['class' => 'btn btn-primary' ,'title'=>'Ver']))!!}
+
+                                         {!!Html::decode(link_to_route('docente.edit', '<i class="fas fa-pencil-alt"></i>', $datoslaborales_docente->docente->cedula, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
 
                                             {!!Form::submit('X',['class'=>'btn btn-danger'])!!}
                                         {!! Form::close()!!}              
@@ -71,7 +71,7 @@
 
         <script>
             $(document).ready(function() {
-             $('#docentes').DataTable({
+             $('#datoslaborales_docentes').DataTable({
                 "language": {
                 "info": "_TOTAL_ registros",
                 "search": "Buscar",

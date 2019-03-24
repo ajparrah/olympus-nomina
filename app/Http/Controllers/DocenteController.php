@@ -93,7 +93,7 @@ class DocenteController extends Controller
         $docente = \App\Docente::find($cedula);
         $docente->fill($request->all());
         $docente->save();
-        return redirect('/docente')->with('confirmacion','cambio');
+        return redirect('/datoslaborales_docente')->with('confirmacion','cambio');
     }
 
     /**

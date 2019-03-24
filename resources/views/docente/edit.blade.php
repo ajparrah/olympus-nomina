@@ -124,9 +124,16 @@
                         <div class="form-row">
                             <div class="col-12" align="center">
                                 {!!Form::submit('Guardar',['class'=>'btn btn-danger'])!!}
+
+
+                                {!!Html::decode(link_to_route('datoslaborales_docente.edit', '<button type="button" class="btn btn-danger btn-sm">Datos Laborales</button>', $docente->cedula))!!}
                             </div>
-                        </div>                         
+                        </div>     
+
+                         
+
+
                     {!! Form::close() !!}  
 
-
+                    </div>  
 @endsection
