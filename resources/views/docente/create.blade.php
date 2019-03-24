@@ -121,12 +121,12 @@
                         </div>
                     </div>
                     <br>
+                            <div class="container" align="center">
+                                        <a href="{{ route('docente.index') }}" class="btn btn-danger">Atras</a>
 
-                        <div class="form-row">
-                            <div class="col-12" align="center">
-                                {!!Form::submit('Guardar',['class'=>'btn btn-danger'])!!}
-                            </div>
-                        </div>                         
+                            {!!Form::submit('Guardar',['class'=>'btn btn-danger'])!!}
+                                    </div>
+                           
                     {!! Form::close() !!}  
 
 
