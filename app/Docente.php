@@ -13,6 +13,6 @@ class Docente extends Model
 
     protected $fillable = ['cedula','nombres', 'apellidos','tlf_local','tlf_movil','direccion','email','sexo','fecha_nacimiento','edo_civil','carga_familiar','cantidad_hijos'];
 
-    
+     
     //Relacion con Datos laborales
 }

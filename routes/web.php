@@ -24,6 +24,12 @@ Route::resource('decanato', 'DecanatoController');
 //DOCENTE
 Route::resource('docente', 'DocenteController');
 
+//BANCO
+Route::resource('banco', 'BancoController');
+
+//CONCEPTO
+Route::resource('conceptos', 'ConceptoController');
+
 
 
 //Route::get('/sedes', 'PagesController@sedes')->name('sede');
@@ -38,7 +44,7 @@ Route::get('escuelas', 'PagesController@escuelas')->name('escuela');
 
 Route::get('bancos', 'PagesController@bancos')->name('banco');
 
-Route::get('conceptos', 'PagesController@conceptos')->name('conceptos');
+//Route::get('conceptos', 'PagesController@conceptos')->name('conceptos');
 
 // nomina DOCENTES
 

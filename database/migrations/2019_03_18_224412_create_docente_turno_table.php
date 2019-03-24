@@ -17,7 +17,7 @@ class CreateDocenteTurnoTable extends Migration
             //Foraneas - Puente
             $table->string('ced_docente',25)->nullable(false);            
             $table->integer('cod_turno')->unsigned();
-            
+            $table->timestamps();
 
             //Relacion
             $table->foreign('ced_docente')->references('ced_docente')->on('datoslaborales_docente');

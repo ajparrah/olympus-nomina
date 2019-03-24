@@ -102,12 +102,11 @@ class DocenteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cod)
+    public function destroy($cedula)
     {
-        //$sede = \App\Sede::destroy($cod);
+        $docente = \App\Docente::destroy($cedula);
 
-        //$sede->delete();
 
-        //return redirect('/sede')->with('confirmacion','cambio');
+        return redirect('/docente')->with('confirmacion','cambio');
     }
 }

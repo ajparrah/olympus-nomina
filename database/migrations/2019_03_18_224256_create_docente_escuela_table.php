@@ -17,7 +17,7 @@ class CreateDocenteEscuelaTable extends Migration
             //Foraneas - Puente
             $table->string('ced_docente',25)->nullable(false);            
             $table->string('cod_escuela',5)->nullable(false);
-            
+            $table->timestamps();
 
             //Relacion
             $table->foreign('ced_docente')->references('ced_docente')->on('datoslaborales_docente');

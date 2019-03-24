@@ -21,10 +21,12 @@ class CreateDatoslaboralesDocenteTable extends Migration
             $table->string('grado_instruccion',25);
             $table->string('tipo_cuenta',16);
 
+            $table->timestamps();
+
             //Foraneas
             $table->string('ced_docente',25)->nullable(false);            
             $table->integer('cod_escalafon')->unsigned();
-            $table->integer('cod_banco')->unsigned();
+            $table->string('cod_banco',25)->nullable(false);
 
             //Relacion
             $table->foreign('ced_docente')->references('cedula')->on('docentes')

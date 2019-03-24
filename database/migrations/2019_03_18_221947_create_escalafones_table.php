@@ -18,6 +18,7 @@ class CreateEscalafonesTable extends Migration
             $table->string('nombre', 64);          
             $table->string('descripcion', 256);
             $table->float('valor_hora',8,2);
+            $table->timestamps();
         });
     }
 

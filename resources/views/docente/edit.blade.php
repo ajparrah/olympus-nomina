@@ -27,7 +27,7 @@
                             {!!Form::text('cedula',null,['class'=>'form-control-plaintext', 'placeholder'=>'Cedula', 'readonly'])!!}
                         </div>
                         <div class="col-lg-1">
-                            <input type="button" name="Submit32" button="" class="btn btn-danger" onclick="location='docenlist.html'" value="...">
+                            <input type="button" name="Submit32" button="" class="btn btn-danger" onclick="location='{{ route('docente.index') }}'" value="...">
                         </div>
                         <div class="col-lg-1">
                             {!!Form::label('Direccion: ')!!}

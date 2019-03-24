@@ -77,7 +77,7 @@
                             <a href="{{ route('escuela') }}">Escuelas</a>                 
                         </li>   
                         <li>
-                            <a href="{{ route('banco') }}">Bancos</a>
+                            <a href="{{ route('banco.index') }}">Bancos</a>
                         </li>                      
                         
                     </ul>
@@ -88,7 +88,7 @@
                     <ul class="collapse list-unstyled" id="submenu2">
                         <li>
                             <li>
-                                <a href="{{ route('conceptos') }}">Conceptos de pago</a>
+                                <a href="{{ route('conceptos.index') }}">Conceptos de pago</a>
                             </li>
                                 <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Nomina Docente</a>
                                     <ul class="collapse list-unstyled" id="submenu3">
@@ -158,11 +158,7 @@
 
     {!!Html::script('js/jquery.js')!!}
     {!!Html::script('js/bootstrap.min.js')!!}
-    <script type="text/javascript">
-            $('#datetimepicker').datetimepicker({
-                format: 'yyyy-mm-dd'
-            });
-        </script>
+  
 
 	<!--
     <script type="text/javascript" src="js/jquery.js"></script>

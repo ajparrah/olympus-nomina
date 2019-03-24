@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DecanatoController extends Controller
+class BancoController extends Controller
 {
-    /**
+  /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $decanatos = \App\Decanato::All(); //Variable que relaciona con el modelo, trae todo por el ::All
-        return view('decanato.index', compact('decanatos'));
+        $bancos = \App\Banco::All(); //Variable que relaciona con el modelo, trae todo por el ::All
+        return view('banco.index', compact('bancos'));
     }
 
     /**
@@ -24,9 +24,7 @@ class DecanatoController extends Controller
      */
     public function create()
     {
-        $sedes = \App\Sede::all(); //Variable que relaciona con el modelo, trae todo por el ::All
-
-        return view('decanato.create', compact('sedes'));
+        return view('banco.create');
     }
 
     /**
@@ -37,12 +35,14 @@ class DecanatoController extends Controller
      */
     public function store(Request $request)
     {
-        \App\Decanato::create([
+
+        \App\Banco::create([
+        'cod' => $request['cod'],
         'nombre' => $request['nombre'],
-        'nombre_decano' => $request['decano'],
-        'cod_sede' =>$request['cod_sede'],
+        'contacto' => $request['contacto'],
+        'descripcion' => $request['descripcion'],
         ]);
-        return redirect('/decanato')->with('confirmacion','store');
+        return redirect('/banco')->with('confirmacion','store'); 
     }
 
     /**
@@ -51,9 +51,12 @@ class DecanatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($cod)
     {
-        //
+
+        $banco =  \App\Banco::find($cod);
+
+        return view('banco.show', compact('banco'));
     }
 
     /**
@@ -64,12 +67,10 @@ class DecanatoController extends Controller
      */
     public function edit($cod)
     {
-        $decanato = \App\Decanato::find($cod);
-        $sedes = \App\Sede::all();
+        $banco = \App\Banco::find($cod);
 
-        //return view('sede.edit',compact('sedes'));
 
-        return view('decanato.edit', ['decanato'=> $decanato], compact('sedes'));
+        return view('banco.edit', ['banco'=> $banco]);
     }
 
     /**
@@ -81,10 +82,10 @@ class DecanatoController extends Controller
      */
     public function update(Request $request, $cod)
     {
-        $decanato = \App\Decanato::find($cod);
-        $decanato->fill($request->all());
-        $decanato->save();
-        return redirect('/decanato')->with('confirmacion','cambio');
+        $banco = \App\Banco::find($cod);
+        $banco->fill($request->all());
+        $banco->save();
+        return redirect('/banco')->with('confirmacion','cambio');
     }
 
     /**
@@ -93,12 +94,11 @@ class DecanatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($cod)
     {
-        $decanato = \App\Decanato::destroy($cod);
+        $banco = \App\Banco::destroy($cod);
 
-        //$sede->delete();
 
-        return redirect('/decanato')->with('confirmacion','cambio');
+        return redirect('/banco')->with('confirmacion','cambio');
     }
 }

@@ -17,6 +17,7 @@ class CreateDatoshijoDocenteTable extends Migration
             //Foraneas
             $table->string('ced_docente',25)->nullable(false);            
             $table->string('ced_hijo',25)->nullable(false);
+            $table->timestamps();
 
             //Relacion
             $table->foreign('ced_docente')->references('cedula')->on('docentes');

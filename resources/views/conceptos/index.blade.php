@@ -5,13 +5,13 @@
            <!--COLUMNA A MODIFICAR-->
            
 			<div class="col-lg-10">
-				<h2 class="text-center">LISTADO DE DOCENTES</h2>
+				<h2 class="text-center">LISTADO DE CONCEPTOS</h2>
                 <br>
                 <div class="container">
                     <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-12" align="right">
-                                    <a href="{{ route('docente.create') }}" class="btn btn-primary">Agregar</a>
+                                    <a href="{{ route('conceptos.create') }}" class="btn btn-danger">Agregar</a>
                                 </div>                               
                             </div>
                             
@@ -30,37 +30,30 @@
                         <table class="table table-striped table-bordered">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col" width="25%">Nro. Cedula</th>
-                                    <th scope="col" width="30%">Nombre Completo</th>
-                                    <th scope="col" width="30%">Email</th>
-                                    <th scope="col" width="15%"><i class="fas fa-cog"></i></th>                                    
+                                    <th scope="col" width="25%">Nombre</th>
+                                    <th scope="col" width="15%">Tipo</th>
+                                    <th scope="col" width="30%">Descripcion</th>
+                                    <th scope="col" width="15%">Costo</th>
+                                    <th scope="col" width="15%"><i class="fas fa-cog"></i></th>                                     
                                 </tr>
                             </thead>
                             <!--Recorriendo la base de datos-->
                             
                             <tbody>
-                            @foreach ($docentes as $docente)           
+                            @foreach ($conceptos as $concepto)    
                                 <tr>
-                                    <th scope="row">{{$docente->cedula}}</td>
-                                    <td>{{$docente->nombres}} {{$docente->apellidos}}</td>
-                                    <td>{{$docente->email}}</td>
+                                    <th scope="row">{{$concepto->nombre}}</th>
+                                    <td>{{$concepto->tipo_concepto}}</td>
+                                    <td>{{$concepto->descripcion}}</td>
+                                    <td>{{$concepto->costo}}</td>
                                     <td>    
                                         
-                                        {!! Form::open(['route' => ['docente.destroy', $docente->cedula], 'method'=>'DELETE']) !!}
-                                            {!!Html::decode(link_to_route('docente.show', '<i class="fas fa-eye"></i>', $docente -> cedula, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
-                                            {!!Html::decode(link_to_route('docente.edit', '<i class="fas fa-pencil-alt"></i>', $docente -> cedula, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
-
+                                        {!! Form::open(['route' => ['conceptos.destroy', $concepto->cod], 'method'=>'DELETE']) !!}
+                                            {!!Html::decode(link_to_route('conceptos.edit', '<i class="fas fa-pencil-alt"></i>', $concepto -> cod, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
 
                                             {!!Form::submit('X',['class'=>'btn btn-danger'])!!}
                                         {!! Form::close()!!}
 
-                                        
-
-                                        <!--<a href="" class="btn btn-primary" title="Ver"><i class="fas fa-eye"></i></a>
-                                        
-                                        <a href="#" class="btn btn-primary" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-                                        <a href="#" class="btn btn-primary" title="Eliminar"><i class="fas fa-times"></i></a></td>
-                                    -->
                                     </td>
                                 </tr> 
                             @endforeach                           
@@ -70,13 +63,20 @@
                         </table>
 
                         <div class="row">
+
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-lg-12" align="left">
-                                        <a href="{{ route('principal') }}" class="btn btn-primary">Atras</a>
-                                    </div>                             
+                                        <a href="{{ route('principal') }}" class="btn btn-danger">Atras</a>
+                                    </div>                               
+                                                                    
                                 </div>
+                                
                             </div>                       
-                        </div>
+
+                    
+                    	
+                        
+                         </div>
 
 @endsection

@@ -18,6 +18,7 @@ class CreateDatosHijoTable extends Migration
             $table->string('nombres', 64);          
             $table->string('apellidos', 64);          
             $table->date('fecha_nacimiento');  
+            $table->timestamps();
         });
     }
 

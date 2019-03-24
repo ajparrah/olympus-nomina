@@ -33,10 +33,6 @@ class PagesController extends Controller
 		return view('registrof3');
 	}
 
-	
-	public function decanatos(){
-		return view('decanato');
-	}
 
 	public function escuelas(){
 		return view('escuela');
@@ -46,9 +42,7 @@ class PagesController extends Controller
 		return view('banco');
 	}
 
-	public function conceptos(){
-		return view('conceptos');
-	}
+	
 
 	//NOMINA DOCENTES
 	public function prenomina(){

@@ -20,6 +20,9 @@ class CreateConceptosPagoTable extends Migration
             $table->string('tipo_concepto');
             $table->string('unidad',64);
             $table->float('costo',8,2);
+            $table->integer('porc_cant')->nullable();
+
+            $table->timestamps();
         });
     }
 

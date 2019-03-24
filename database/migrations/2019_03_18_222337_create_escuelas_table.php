@@ -18,6 +18,7 @@ class CreateEscuelasTable extends Migration
             $table->string('nombre', 64);
             $table->string('director', 64);
             $table->integer('decanato_cod')->unsigned();
+            $table->timestamps();
 
             //RELACIONES
             $table->foreign('decanato_cod')->references('cod')->on('decanatos')

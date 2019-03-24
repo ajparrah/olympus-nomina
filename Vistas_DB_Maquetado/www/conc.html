@@ -115,7 +115,13 @@
                            <a href="#submenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Área Docente</a>
                             <ul class="collapse list-unstyled" id="submenu7">
                                 <li>
+                                    <a href="repfecha.html">Por Fecha</a>
+                                </li>
+                                <li>
                                     <a href="replapo.html">Por Lapso</a>
+                                </li>
+                                <li>
+                                    <a href="repcod.html">Codigo de Nómina</a>
                                 </li>
                             </ul>
                         </li>
@@ -123,7 +129,13 @@
                             <a href="#submenu8" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Área Especial</a>
                             <ul class="collapse list-unstyled" id="submenu8">
                                 <li>
+                                  <a href="repfecha.html">Por Fecha</a>
+                                </li>
+                                <li>
                                     <a href="replapo.html">Por Lapso</a>
+                                </li>
+                                <li>
+                                    <a href="repcod.html">Codigo de Nómina</a>
                                 </li>
                             </ul>
                         </li>                     
@@ -134,134 +146,102 @@
                 </li>
             </ul>
             </nav>
-            <div class="col-lg-10">
-                <div class="container">
-                    <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="text-center">CONCEPTOS</h2>
-                    </div>
+			<div class="col-lg-10">
+				<h1 class="text-center">CONCEPTOS</h1>
 
+                <div class="container">
+                    <div class="row justify-content-center">
+
+                        <div class="col-lg-6">
+                            <form action="">
+                                <div class="form-group">
+                                <label for="">Codigo:</label>
+                                    <div class="form-row">
+                                        <div class="col-11">
+                                            <input type="text" class="form-control" placeholder="Nro.codigo">
+                                        </div>
+                                            <div class="col-1">
+                                                <button type="submit" class="btn btn-danger">...</button>     
+                                            </div>
+                                    </div>                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Nombre:</label>
+                                    <input type="text" class="form-control" placeholder="Nombre del Concepto"> 
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Descripcion:</label>
+                                    <input type="text" class="form-control" placeholder="Descripcion"> 
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tipo de Concepto:</label>
+                                        <div class="col-13">
+                                            <select class="form-control">
+                                                <option> Tipos</option>
+                                                <option> Asignacion</option>
+                                                <option> Deduccion</option>
+                                            </select>
+                                        </div>                                
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Unidad:</label>
+                                    <div class="form-row">
+                                        <div class="col-9">
+                                            <select class="form-control">
+                                                <option> Seleccione</option>
+                                                <option> Hora</option>
+                                                <option> Porcentaje</option>
+                                                <option> Otros</option>
+                                            </select>
+                                        </div> 
+                                        <div class="col-1">
+                                            <label class="col-form-label">%:</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="text" class="form-control" placeholder="0.0">
+                                        </div>
+                                    </div>                                
+                                </div>                               
+                                <div class="form-group">
+                                    <label for="">Costo:</label>
+                                    <input type="text" class="form-control" placeholder="Costo Unidad"> 
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-3" align="center">
+                                        <button class="btn btn-danger" type="submit">Guardar</button>
+                                    </div>
+                                    <div class="col-3" align="center">
+                                        <button class="btn btn-danger" type="submit">Limpiar</button>
+                                    </div>
+                                    <div class="col-3" align="center">
+                                        <button class="btn btn-danger" type="submit">Editar</button>
+                                    </div>
+                                    <div class="col-3" align="center">
+                                        <button class="btn btn-danger" type="submit">Eliminar</button>
+                                    </div>                        
+                                </div>
+                            </form>
+                        </div>                        
+                        
+                    </div>
                 </div>
                 <br>
-                <div class="container">
-                    <form>
-                    <div class="form-row">
-                       
-                        <div class ="col-2"></div>
-                        <div class="col-0.5">
-                            <label class="col-form-label">Codigo:</label>
-                        </div>
-                        <div class="col-1.5">
-                            <input type="text" class="form-control" placeholder="Codigo">
-                        </div>
-                        <div class="col-1">
-                            <button type="submit" class="btn btn-danger">...</button>
-                        </div>
-                        <div class="col-1">
-                            <label class="col-form-label">Descripcion:</label>
-                        </div>
-
-                        <div class="col-3">
-                            <input type="text" class="form-control" placeholder="Descripcion">
-                        </div>
-                        </div>
-                        <br>
-                        <div class="form-row">
-                       
-                        <div class ="col-2"></div>
-                        <div class="col-0.5">
-                        <label class=" col-form-label">T. de Conceptos:</label>
-                        </div>
-                        <div class="col-2">
-                            <select class="form-control">
-                            <option> Tipos</option>
-                            <option> Asignacion</option>
-                            <option> Deduccion</option>
-                        </select></div>
-
-                        <div class ="col-1"></div>
-
-                        <div class="col-1">
-                        <label class=" col-form-label">Unidad:</label>
-                        </div>
-                        <div class="col-3">
-                            <select class="form-control">
-                            <option> Seleccione</option>
-                            <option> Hora</option>
-                            <option> Porcentaje</option>
-                            <option> Otros</option>
-                        </select></div>
-
-                                               <div class ="col-0.5"></div>
-                        <div class="col-0.5">
-                            <label class="col-form-label">%:</label>
-                        </div>
-                        <div class="col-1">
-                            <input type="text" class="form-control" placeholder="0.0">
-                        </div> 
-                        </div>
-
-    
-
-                        </div>
-                        <br>
-                        <div class="form-row">
-                       
-                        <div class ="col-2"></div>
-                        <div class="col-0.5">
-                            <label class="col-form-label">Nombre:</label>
-                        </div>
-                        <div class="col-1.5">
-                            <input type="text" class="form-control" placeholder="Nombre de Concepto">
-                        </div>
-                    
-                        <div class ="col-1"></div>
-
-                        <div class="col-1">
-                            <label class="col-form-label">Costo:</label>
-                        </div>
-
-                        <div class="col-3">
-                            <input type="text" class="form-control" placeholder="Costo Unidad">
-                        </div>
-                        </div>
-                        <br>
-                        <div class="form-row">
-
-                        <div class ="col-2"></div>
-
-                        <div class="col-2">
-                            <button type="submit" class="btn btn-danger">Guardar</button>
-                        </div>
-                        <div class="col-2">
-                            <button type="submit" class="btn btn-danger">Limpiar</button>
-                        </div>
-                        <div class="col-2">
-                            <button type="submit" class="btn btn-danger">Editar</button>
-                        </div>
-                        <div class="col-2">
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                        </div>
-                        </div>
-                        </form>
-
-
-
-                </div>
-            
-                </div>
-            </div>
-        </div>
-    </div>
+                <br>
+                <br>   
+                
+                
+			</div>
+		</div>
+	</div>
 
 
 
 
-    <!--
-        Agregando los codigos javascript necesarios     
-    -->
+	<!--
+		Agregando los codigos javascript necesarios		
+	-->
 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
 </html>

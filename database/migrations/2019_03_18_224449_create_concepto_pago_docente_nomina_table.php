@@ -22,6 +22,8 @@ class CreateConceptoPagoDocenteNominaTable extends Migration
             $table->integer('cod_concepto_pago')->unsigned();
             $table->integer('cod_nomina')->unsigned();
 
+            $table->timestamps();
+
             //Relacion
             $table->foreign('ced_docente')->references('ced_docente')->on('datoslaborales_docente');
 

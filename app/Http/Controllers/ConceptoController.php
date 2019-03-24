@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Concepto;
 use Illuminate\Http\Request;
 
-class DecanatoController extends Controller
+class ConceptoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,8 @@ class DecanatoController extends Controller
      */
     public function index()
     {
-        $decanatos = \App\Decanato::All(); //Variable que relaciona con el modelo, trae todo por el ::All
-        return view('decanato.index', compact('decanatos'));
+        $conceptos = \App\Concepto::All(); //Variable que relaciona con el modelo, trae todo por el ::All
+        return view('conceptos.index', compact('conceptos'));
     }
 
     /**
@@ -24,9 +25,7 @@ class DecanatoController extends Controller
      */
     public function create()
     {
-        $sedes = \App\Sede::all(); //Variable que relaciona con el modelo, trae todo por el ::All
-
-        return view('decanato.create', compact('sedes'));
+        return view('conceptos.create');
     }
 
     /**
@@ -37,12 +36,16 @@ class DecanatoController extends Controller
      */
     public function store(Request $request)
     {
-        \App\Decanato::create([
+
+        \App\Concepto::create([
         'nombre' => $request['nombre'],
-        'nombre_decano' => $request['decano'],
-        'cod_sede' =>$request['cod_sede'],
+        'descripcion' => $request['descripcion'],
+        'tipo_concepto' => $request['tipo_concepto'],
+        'unidad' => $request['unidad'],
+        'costo' => $request['costo'],
+        'porc_cant' => $request['porc_cant'],
         ]);
-        return redirect('/decanato')->with('confirmacion','store');
+        return redirect('/conceptos')->with('confirmacion','store');
     }
 
     /**
@@ -51,9 +54,9 @@ class DecanatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($cod)
     {
-        //
+        //return view('sede.show', compact('sedes'));
     }
 
     /**
@@ -64,12 +67,11 @@ class DecanatoController extends Controller
      */
     public function edit($cod)
     {
-        $decanato = \App\Decanato::find($cod);
-        $sedes = \App\Sede::all();
+        $concepto = \App\Concepto::find($cod);
 
         //return view('sede.edit',compact('sedes'));
 
-        return view('decanato.edit', ['decanato'=> $decanato], compact('sedes'));
+        return view('conceptos.edit', ['concepto'=> $concepto]);
     }
 
     /**
@@ -81,10 +83,10 @@ class DecanatoController extends Controller
      */
     public function update(Request $request, $cod)
     {
-        $decanato = \App\Decanato::find($cod);
-        $decanato->fill($request->all());
-        $decanato->save();
-        return redirect('/decanato')->with('confirmacion','cambio');
+        $concepto = \App\Concepto::find($cod);
+        $concepto->fill($request->all());
+        $concepto->save();
+        return redirect('/conceptos')->with('confirmacion','cambio');
     }
 
     /**
@@ -93,12 +95,12 @@ class DecanatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($cod)
     {
-        $decanato = \App\Decanato::destroy($cod);
+        $concepto = \App\Concepto::destroy($cod);
 
         //$sede->delete();
 
-        return redirect('/decanato')->with('confirmacion','cambio');
+        return redirect('/conceptos')->with('confirmacion','cambio');
     }
 }

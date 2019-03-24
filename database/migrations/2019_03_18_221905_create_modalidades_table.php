@@ -17,6 +17,7 @@ class CreateModalidadesTable extends Migration
             $table->increments('cod');
             $table->string('nombre', 64);
             $table->string('descripcion', 256);
+            $table->timestamps();
         });
     }
 
