@@ -10,8 +10,6 @@ Route::get('docentes-hijos', 'PagesController@hijos')->name('hijos');
 
 Route::get('docentes-hijos-detalles', 'PagesController@hijosdetalles')->name('hijosdetalles');
 
-Route::get('registro-laborales', 'PagesController@registrof2')->name('registrof2');
-
 Route::get('registro-bancario', 'PagesController@registrof3')->name('registrof3');
 
 //SEDE
@@ -23,6 +21,9 @@ Route::resource('decanato', 'DecanatoController');
 
 //DOCENTE
 Route::resource('docente', 'DocenteController');
+
+	//DOCENTE DATOS LABORALES
+Route::resource('datoslaborales_docente', 'Datoslaborales_docenteController');
 
 //BANCO
 Route::resource('banco', 'BancoController');

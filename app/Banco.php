@@ -12,4 +12,11 @@ class Banco extends Model
     protected $keyType = 'string'; //Como no es entera autoincremental la clave primaria, se menciona el tipo
 
     protected $fillable = ['cod','nombre','contacto', 'descripcion']; 
+
+
+        public function datoslaborales_docente()
+    {
+        return $this->hasOne('App\Datoslaborales_docente');
+    }
+    
 }

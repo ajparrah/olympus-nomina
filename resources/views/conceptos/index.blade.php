@@ -4,7 +4,7 @@
 
     <body>
     <br>
-           <h2 class="text-center">LISTA DE BANCOS</h2>
+           <h2 class="text-center">LISTA DE CONCEPTOS</h2>
         <div class="container">
  
 

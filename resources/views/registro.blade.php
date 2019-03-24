@@ -7,7 +7,7 @@
                     <div class="col-lg-12">
                         <h2 class="text-center">REGISTRO DE DOCENTE</h2>
                     </div>
-                    
+                     
                 </div>
                 <br>
                 <div class="row">

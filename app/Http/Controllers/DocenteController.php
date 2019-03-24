@@ -50,7 +50,7 @@ class DocenteController extends Controller
         'carga_familiar' => $request['carga_familiar'],
         'cantidad_hijos' => $request['cantidad_hijos'],
         ]);
-        return redirect('/docente')->with('confirmacion','store');
+        return redirect('/datoslaborales_docente/create')->with('confirmacion','store');
     }
 
     /**
