@@ -14,7 +14,7 @@ class CreateEscuelasTable extends Migration
     public function up()
     {
         Schema::create('escuelas', function (Blueprint $table) {
-            $table->string('cod',5)->primary();
+            $table->increments('cod');
             $table->string('nombre', 64);
             $table->string('director', 64);
             $table->integer('decanato_cod')->unsigned();

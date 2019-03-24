@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Decanato;
 
 class DecanatoController extends Controller
 {
@@ -13,8 +14,8 @@ class DecanatoController extends Controller
      */
     public function index()
     {
-        $decanatos = \App\Decanato::All(); //Variable que relaciona con el modelo, trae todo por el ::All
-        return view('decanato.index', compact('decanatos'));
+        $decanatos = Decanato::with('sede')->orderby('cod', 'ASC')->paginate(10);
+         return view('decanato.index', compact('decanatos'));
     }
 
     /**
@@ -93,7 +94,7 @@ class DecanatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($cod)
     {
         $decanato = \App\Decanato::destroy($cod);
 

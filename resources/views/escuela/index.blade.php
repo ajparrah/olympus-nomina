@@ -4,13 +4,13 @@
 
     <body>
     <br>
-           <h2 class="text-center">LISTA DE DECANATOS</h2>
+           <h2 class="text-center">LISTA DE ESCUELAS</h2>
         <div class="container">
  
 
 
                                 <div class="container" align="center">
-                                    <a href="{{ route('decanato.create') }}" class="btn btn-danger" style="width:180px">Agregar</a>
+                                    <a href="{{ route('escuela.create') }}" class="btn btn-danger" style="width:180px">Agregar</a>
                                 </div>                               
                             </div>
                             
@@ -31,29 +31,32 @@
 
 
 
-            <table id="decanatos" class="table table-striped">
+            <table id="escuelas" class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th class="text-center">Nombre</th>
-                        <th class="text-center">Decano</th>
-                        <th class="text-center">Sede</th>               
+                        <th class="text-center">Director</th>
+                        <th class="text-center">Decanato</th>  
+                        <th class="text-center">Sede</th>             
                         <th width="160px" class="text-center"><i class="fas fa-cog"></i></th>  
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($decanatos as $decanato)
+                    @foreach ($escuelas as $escuela)
                         <tr>
-                            <td class="text-center">{{$decanato->nombre}}</td>
-                            <td class="text-center">{{$decanato->nombre_decano}}</td> 
-                            <td class="text-center">{{$decanato->sede->nombre}}</td>
-                            <td>    
-                                        
-                                        {!! Form::open(['route' => ['decanato.destroy', $decanato->cod], 'method'=>'DELETE']) !!}
-                                            {!!Html::decode(link_to_route('decanato.edit', '<i class="fas fa-pencil-alt"></i>', $decanato -> cod, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
+                            <td class="text-center">{{$escuela->nombre}}</td>
+                            <td class="text-center">{{$escuela->director}}</td> 
+                            <td class="text-center">{{$escuela->decanato->nombre}}</td>
+                            <td class="text-center">{{$escuela->decanato->sede->nombre}}</td>
+                         <td>                              
+                                        {!! Form::open(['route' => ['escuela.destroy', $escuela->cod], 'method'=>'DELETE']) !!}
+                                            {!!Html::decode(link_to_route('escuela.edit', '<i class="fas fa-pencil-alt"></i>', $escuela -> cod, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
 
                                             {!!Form::submit('X',['class'=>'btn btn-danger'])!!}
                                         {!! Form::close()!!}
+                                
+                
                                     </td>
                         </tr>
                     @endforeach
@@ -69,7 +72,7 @@
 
         <script>
             $(document).ready(function() {
-             $('#decanatos').DataTable({
+             $('#escuelas').DataTable({
                 "language": {
                 "info": "_TOTAL_ registros",
                 "search": "Buscar",

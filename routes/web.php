@@ -30,6 +30,9 @@ Route::resource('banco', 'BancoController');
 //CONCEPTO
 Route::resource('conceptos', 'ConceptoController');
 
+//ESCUELA
+Route::resource('escuela', 'EscuelaController');
+
 
 
 //Route::get('/sedes', 'PagesController@sedes')->name('sede');

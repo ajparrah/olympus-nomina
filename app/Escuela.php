@@ -2,33 +2,27 @@
 
 namespace App;
 
-use App\sede;
-
+use App\decanato;
 use Illuminate\Database\Eloquent\Model;
 
-class Decanato extends Model
+class Escuela extends Model
 {
-    
-    protected $table = 'decanatos';
+    //
+    protected $table = 'escuelas';
     protected $primaryKey = 'cod'; //Codigo de la table Establecer la clave primaria de la base de datos
     //protected $incrementing = 'false'; //Como no auotincrementa la clave primaria, se establece false
     //protected $keyType = 'string'; //Como no es entera autoincremental la clave primaria, se menciona el tipo
 
-    protected $fillable = ['nombre', 'nombre_decano','cod_sede'];
+    protected $fillable = ['nombre', 'director','decanato_cod'];
 
 
-    //Relacion con el modelo de Sede
+    //Relacion con el modelo de Decanato
 
-    public function sede()
+    public function decanato()
     {
-        return $this->belongsTo('App\Sede', 'cod_sede'); 
+    	return $this->belongsTo('App\Decanato', 'decanato_cod'); 
     }
 
-    //Relacion con el modelo de Escuelas
 
-        public function escuelas()
-    {
-        return $this->hasMany('App\Escuela');
-    }
 
 }

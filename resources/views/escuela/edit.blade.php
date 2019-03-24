@@ -5,7 +5,7 @@
             <div class="col-lg-10">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="text-center">DECANATO</h2>
+                        <h2 class="text-center">ESCUELA</h2>
                     </div>
                     
                 </div>
@@ -13,37 +13,38 @@
                 <div class="container">
 
 
-                    {!! Form::model($decanato, ['route' => ['decanato.update', $decanato->cod], 'method'=>'PUT']) !!}
+                    {!! Form::model($escuela, ['route' => ['escuela.update', $escuela->cod],
+                     'method'=>'PUT']) !!}
                         
                         <div class="form-row">
                                 <div class="col-4"></div>
                                     <div class="col-1">
                                         {!!Form::label('Nombre: ')!!}
                                     </div>
-                                <div class="col-3"> 
-                                    {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Nombre'])!!}
+                                <div class="col-3">
+                                    {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Escuela'])!!}
                                 </div>
                         </div>
                         <br>
                         <div class="form-row">
                             <div class="col-4"></div>
                             <div class="col-1">
-                                {!!Form::label('Decano: ')!!}
+                                {!!Form::label('Director: ')!!}
                             </div>
                             <div class="col-3">
-                                {!!Form::text('nombre_decano',null,['class'=>'form-control', 'placeholder'=>'Decano'])!!}
+                                {!!Form::text('director',null,['class'=>'form-control', 'placeholder'=>'Director'])!!}
                             </div>
                         </div>
                         <br>
                         <div class="form-row">
                         <div class="col-4"></div>
                             <div class="col-1">
-                                {!!Form::label('Sede: ')!!}
+                                {!!Form::label('Decanato: ')!!}
                             </div>
                             <div class="col-3">
                                 
                                     
-                               {!!Form::select('cod_sede',$sedes->pluck('nombre', 'cod'),null,['class'=>'form-control'])!!}
+                               {!!Form::select('decanato_cod',$decanatos->pluck('nombre', 'cod'))!!}
                                 
 
                             </div>

@@ -16,7 +16,7 @@ class CreateDocenteEscuelaTable extends Migration
         Schema::create('docente_escuela', function (Blueprint $table) {
             //Foraneas - Puente
             $table->string('ced_docente',25)->nullable(false);            
-            $table->string('cod_escuela',5)->nullable(false);
+            $table->integer('cod_escuela')->unsigned();
             $table->timestamps();
 
             //Relacion

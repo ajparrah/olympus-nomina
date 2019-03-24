@@ -74,7 +74,7 @@
                         </li>
 
                         <li>    
-                            <a href="{{ route('escuela') }}">Escuelas</a>                 
+                            <a href="{{ route('escuela.index') }}">Escuelas</a>                 
                         </li>   
                         <li>
                             <a href="{{ route('banco.index') }}">Bancos</a>
