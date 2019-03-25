@@ -25,6 +25,9 @@ Route::resource('docente', 'DocenteController');
 	//DOCENTE DATOS LABORALES
 Route::resource('datoslaborales_docente', 'Datoslaborales_docenteController');
 
+	//Hijos Docente
+Route::resource('datos_hijo', 'Datos_hijoController');
+
 //BANCO
 Route::resource('banco', 'BancoController');
 

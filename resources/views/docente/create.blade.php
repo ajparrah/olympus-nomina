@@ -62,7 +62,7 @@
                             {!!Form::text('cantidad_hijos',null,['class'=>'form-control', 'placeholder'=>'Cant. Hijos'])!!}
                         </div>
                         <div class="col-lg-1" align="center">
-                            <a href="{{ route('hijos') }}" class="btn btn-primary">...</a>
+                            <a href="{{ route('datos_hijo.index') }}" class="btn btn-primary">...</a>
                         </div>
                     </div>
                     <br>

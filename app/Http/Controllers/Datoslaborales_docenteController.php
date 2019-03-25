@@ -22,9 +22,8 @@ class Datoslaborales_docenteController extends Controller
     public function create()
     {
         $docentes = \App\Docente::all(); //Variable que relaciona con el modelo, trae todo por el ::All
-        $escalafones = \App\Escalafon::all(); 
         $bancos = \App\Banco::all();
-        return view('datoslaborales_docente.create', compact('docentes','escalafones','bancos'));
+        return view('datoslaborales_docente.create', compact('docentes','bancos'));
     }
 
 
@@ -34,10 +33,10 @@ class Datoslaborales_docenteController extends Controller
         'fecha_ingreso' => $request['fecha_ingreso'],
         'nro_cuenta' => $request['nro_cuenta'],
         'estatus' =>$request['estatus'],
+        'escalafon' =>$request['escalafon'],
         'grado_instruccion' => $request['grado_instruccion'],
         'tipo_cuenta' => $request['tipo_cuenta'],
         'ced_docente' =>$request['ced_docente'],        
-        'cod_escalafon' => $request['cod_escalafon'],
         'cod_banco' =>$request['cod_banco'],   
         ]);
         return redirect('/datoslaborales_docente')->with('confirmacion','store');
@@ -47,11 +46,10 @@ class Datoslaborales_docenteController extends Controller
     {
         $datoslaborales_docente = \App\Datoslaborales_docente::find($ced_docente);
         $docentes = \App\Docente::all();
-        $escalafons = \App\Escalafon::all();
         $bancos = \App\Banco::all();
         //return view('sede.edit',compact('sedes'));
 
-        return view('datoslaborales_docente.edit', compact('datoslaborales_docente','docentes','escalafons','bancos'));
+        return view('datoslaborales_docente.edit', compact('datoslaborales_docente','docentes','bancos'));
     }
 
     public function update(Request $request, $ced_docente)

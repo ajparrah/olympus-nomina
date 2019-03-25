@@ -4,13 +4,13 @@
 
     <body>
     <br>
-           <h2 class="text-center">LISTA DE DOCENTES</h2>
+           <h2 class="text-center">LISTA DE HIJOS DE PROFESORES</h2>
         <div class="container">
  
 
 
                                 <div class="container" align="center">
-                                    <a href="{{ route('docente.create') }}" class="btn btn-danger" style="width:180px">Agregar</a>
+                                    <a href="{{ route('datos_hijo.create') }}" class="btn btn-danger" style="width:180px">Agregar</a>
                                 </div>                               
                             </div>
                             
@@ -26,38 +26,38 @@
                             </div>
                         @endif
 
-            <table id="datoslaborales_docentes" class="table table-striped">
+
+
+
+
+
+            <table id="datos_hijos" class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
+                        <th class="text-center">Cedula de Padres</th>
+                        <th class="text-center">Nombre de Padres</th>
                         <th class="text-center">Cedula</th>
                         <th class="text-center">Nombre</th>
-                        <th class="text-center">Email</th>
-                        <th class="text-center">Grado</th>
-                        <th class="text-center">Escalafon</th>
-                                   
+                        <th class="text-center">Fecha de Nacimiento</th>               
                         <th width="160px" class="text-center"><i class="fas fa-cog"></i></th>  
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($datoslaborales_docentes as $datoslaborales_docente)
+                    @foreach ($datos_hijos as $datos_hijo)
                         <tr>
-                            <td class="text-center">{{$datoslaborales_docente->ced_docente}}</td>
-                            <td class="text-center">{{$datoslaborales_docente->docente->nombres}} {{$datoslaborales_docente->docente->apellidos}} </td> 
-                             <td class="text-center">{{$datoslaborales_docente->docente->email}}</td>
-                             <td class="text-center">{{$datoslaborales_docente->grado_instruccion}}</td>
-                             <td class="text-center">{{$datoslaborales_docente->escalafon}}</td>
-
-                         <td>                              
+                            <td class="text-center">{{$datos_hijos->docente->cedula}}</td>
+                            <td class="text-center">{{$datos_hijos->docente->nombres}}{{$datos_hijos->docente->apellidos}}</td> 
+                            <td class="text-center">{{$datos_hijos->cedula}}</td>
+                            <td class="text-center">{{$datos_hijos->nombres}}{{$datos_hijos->apellidos}}</td>
+                            <td class="text-center">{{$datos_hijos->fecha_nacimiento}}</td>
+                            <td>    
                                         
-                                        {!! Form::open(['route' => ['docente.destroy',$datoslaborales_docente->docente->cedula], 'method'=>'DELETE']) !!}
-
-                                        {!!Html::decode(link_to_route('docente.show', '<i class="fas fa-eye"></i>', $datoslaborales_docente->docente->cedula, ['class' => 'btn btn-primary' ,'title'=>'Ver']))!!}
-
-                                         {!!Html::decode(link_to_route('docente.edit', '<i class="fas fa-pencil-alt"></i>', $datoslaborales_docente->docente->cedula, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
+                                        {!! Form::open(['route' => ['datos_hijo.destroy', $datos_hijo->cedula], 'method'=>'DELETE']) !!}
+                                            {!!Html::decode(link_to_route('decanato.edit', '<i class="fas fa-pencil-alt"></i>', $datos_hijo -> cedula, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
 
                                             {!!Form::submit('X',['class'=>'btn btn-danger'])!!}
-                                        {!! Form::close()!!}              
+                                        {!! Form::close()!!}
                                     </td>
                         </tr>
                     @endforeach
@@ -73,7 +73,7 @@
 
         <script>
             $(document).ready(function() {
-             $('#datoslaborales_docentes').DataTable({
+             $('#datos_hijos').DataTable({
                 "language": {
                 "info": "_TOTAL_ registros",
                 "search": "Buscar",

@@ -34,7 +34,7 @@
                                 {!!Form::label('Escalafon: ')!!}
                             </div>
                             <div class="col-3">                         
-                               {!!Form::select('cod_escalafon',$escalafones->pluck('nombre', 'cod'),null,['class'=>'form-control'])!!}
+                               {!!Form::select('escalafon',['Asociado' => 'Asociado', 'Asistente' => 'Asistente','Agregado' => 'Agregado','Instructor' => 'Instructor','Titular' => 'Titular'],null, ['class'=>'form-control'])!!}
                         </div>
 
                         <div class="col-lg-1">
