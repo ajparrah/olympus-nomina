@@ -23,10 +23,10 @@ class Datoslaborales_docenteController extends Controller
     public function create()
     {
         $docentes = \App\Docente::all(); //Variable que relaciona con el modelo, trae todo por el ::All
-         
+
         $bancos = \App\Banco::all();
         return view('datoslaborales_docente.create', compact('docentes','bancos'));
-        
+
     }
 
 
@@ -40,7 +40,9 @@ class Datoslaborales_docenteController extends Controller
         'escalafon' =>$request['escalafon'],
         'grado_instruccion' => $request['grado_instruccion'],
         'tipo_cuenta' => $request['tipo_cuenta'],
-        'ced_docente' =>$request['ced_docente'],
+
+        'ced_docente' =>$request['ced_docente'],    
+
         'cod_banco' =>$request['cod_banco'],   
         ];
 
@@ -75,9 +77,10 @@ class Datoslaborales_docenteController extends Controller
     {
         $datoslaborales_docente = \App\Datoslaborales_docente::find($ced_docente);
         $docentes = \App\Docente::all();
-        
+
         $bancos = \App\Banco::all();
         //return view('sede.edit',compact('sedes'));
+
         return view('datoslaborales_docente.edit', compact('datoslaborales_docente','docentes','bancos'));
     }
 

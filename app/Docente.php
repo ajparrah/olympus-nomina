@@ -26,5 +26,4 @@ class Docente extends Model
     {
         return $this->BelongsToMany('App\Datos_hijo','datos_hijo_docentes','ced_docente','ced_hijo'); 
     }
-
 }

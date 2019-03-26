@@ -99,4 +99,4 @@ class Datos_hijoController extends Controller
 
         return redirect('/datos_hijo')->with('confirmacion','cambio');
     }
-}
+

@@ -45,7 +45,11 @@
                                 {!!Form::label('Escalafon: ')!!}
                             </div>
                             <div class="col-3">                         
+<<<<<<< HEAD
                                {!!Form::select('escalafon',['Asociado' => 'Asociado', 'Asistente' => 'Asistente','Agregado' => 'Agregado','Instructor' => 'Instructor','Titular' => 'Titular'],null, ['class'=>'form-control','required'])!!}
+=======
+                               {!!Form::select('escalafon',['Asociado' => 'Asociado', 'Asistente' => 'Asistente','Agregado' => 'Agregado','Instructor' => 'Instructor','Titular' => 'Titular'],null, ['class'=>'form-control'])!!}
+>>>>>>> c379e0f7610d73db0e29d6065352b01664d91090
                         </div>
 
                         <div class="col-lg-1">

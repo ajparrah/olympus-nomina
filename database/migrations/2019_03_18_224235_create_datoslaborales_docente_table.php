@@ -26,7 +26,7 @@ class CreateDatoslaboralesDocenteTable extends Migration
 
             //Foraneas
             $table->string('ced_docente',25)->nullable(false);            
-            
+
             $table->string('cod_banco',25)->nullable(false);
 
             //Relacion

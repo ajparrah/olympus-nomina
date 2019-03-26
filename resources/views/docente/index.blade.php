@@ -31,22 +31,22 @@
                         <h2 class="text-center">DATOS PERSONALES</h2>
                     </div>  
 
-            <table id="docentes" class="table table-striped">
+            <table id="tableSearch" class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th class="text-center">Cedula</th>
-                        <th class="text-center">Nombre Completo</th>
-                        <th class="text-center">Email</th>            
-                        <th width="160px" class="text-center"><i class="fas fa-cog"></i></th>  
+                        <th scope="col" width="15%">Cedula</th>
+                        <th scope="col" width="40%">Nombre Completo</th>
+                        <th scope="col" width="30%">Email</th>            
+                        <th scope="col" width="15%"><i class="fas fa-cog"></i></th>  
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach ($docentes as $docente)
                         <tr>
-                            <td class="text-center">{{$docente->cedula}}</td>
-                            <td class="text-center">{{$docente->nombres}} {{$docente->apellidos}}</td> 
-                            <td class="text-center">{{$docente->email}}</td>
+                            <td>{{$docente->cedula}}</td>
+                            <td>{{$docente->nombres}} {{$docente->apellidos}}</td> 
+                            <td>{{$docente->email}}</td>
                          <td>                              
                                         
                                         {!! Form::open(['route' => ['docente.destroy', $docente->cedula], 'method'=>'DELETE']) !!}
@@ -69,31 +69,6 @@
             <a href="{{ route('principal') }}" class="btn btn-primary">Atras</a>
         </div>
 
-        <script>
-            $(document).ready(function() {
-             $('#docentes').DataTable({
-                "language": {
-                "info": "_TOTAL_ registros",
-                "search": "Buscar",
-                "paginate": {
-                    "next": "Siguiente",
-                    "previous": "Anterior",
-                },
-                "lengthMenu": 'Mostrar <select>'+
-                '<option value="10">10</option>'+
-                '<option value="50">50</option>'+
-                '<option value="100">100</option>'+
-                '</select> registros',
-                "loadingRecords":"Cargando...",
-                "processing":"Cargando...",
-                "emptyTable": "No hay datos",
-                "zeroRecords": "No hay coincidencia",
-                "infoEmpty": "",
-                "infoFiltered": "",
-             }});
-             
-            });
-
-        </script>
+        
 
 @endsection

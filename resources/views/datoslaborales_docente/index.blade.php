@@ -26,6 +26,7 @@
                                 </button>
                             </div>
                         @endif
+
                     
                         <table class="table table-striped table-bordered" id="tableSearch">
                             <thead class="thead-dark">
@@ -49,6 +50,7 @@
                                     <td>{{$datoslaborales_docente->grado_instruccion}}</td>
                                     <td>{{$datoslaborales_docente->escalafon}}</td>
                                     <td>    
+
                                         
                                         {!! Form::open(['route' => ['docente.destroy',$datoslaborales_docente->docente->cedula], 'method'=>'DELETE']) !!}
 
