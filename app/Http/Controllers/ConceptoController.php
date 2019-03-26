@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Concepto;
 use Illuminate\Http\Request;
+use Validator;
 
 class ConceptoController extends Controller
 {
@@ -37,15 +38,38 @@ class ConceptoController extends Controller
     public function store(Request $request)
     {
 
-        \App\Concepto::create([
+
+        $datosCampos = [
         'nombre' => $request['nombre'],
         'descripcion' => $request['descripcion'],
         'tipo_concepto' => $request['tipo_concepto'],
         'unidad' => $request['unidad'],
         'costo' => $request['costo'],
         'porc_cant' => $request['porc_cant'],
-        ]);
-        return redirect('/conceptos')->with('confirmacion','store');
+        ];
+
+        $validator = Validator::make($datosCampos, 
+            [
+
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'tipo_concepto' => 'required',
+            'unidad' => 'required',
+            'costo' => 'required',
+            ]
+        );
+
+        //Acciones si pasa o no la validacion el formulario
+        if( $validator->fails() )
+        {
+            return redirect('/conceptos/create')->withErrors($validator)->withInput();
+        }
+        else
+        {
+            \App\Concepto::create($datosCampos);
+            return redirect('/conceptos')->with('confirmacion','cambio');
+        }
+
     }
 
     /**

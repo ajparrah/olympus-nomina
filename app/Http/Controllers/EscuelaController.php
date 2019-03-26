@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Escuela;
+use Validator;
 class EscuelaController extends Controller
 {
-
-
 
 	    public function index()
     {
@@ -29,12 +28,33 @@ class EscuelaController extends Controller
 
         public function store(Request $request)
     {
-        \App\Escuela::create([
+
+        $datosCampos = [
         'nombre' => $request['nombre'],
         'director' => $request['director'],
         'decanato_cod' =>$request['decanato_cod'],
-        ]);
-        return redirect('/escuela')->with('confirmacion','store');
+        ];
+
+        $validator = Validator::make($datosCampos, 
+            [
+
+            'nombre' => 'required',
+            'director' => 'required',
+            'decanato_cod' => 'required'
+            ]
+        );
+
+        //Acciones si pasa o no la validacion el formulario
+        if( $validator->fails() )
+        {
+            return redirect('/escuela/create')->withErrors($validator)->withInput();
+        }
+        else
+        {
+            \App\Escuela::create($datosCampos);
+            return redirect('/escuela')->with('confirmacion','cambio');
+        }
+
     }
 
         public function edit($cod)

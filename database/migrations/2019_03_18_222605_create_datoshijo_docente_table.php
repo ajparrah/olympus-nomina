@@ -13,17 +13,21 @@ class CreateDatoshijoDocenteTable extends Migration
      */
     public function up()
     {
-        Schema::create('datoshijo_docente', function (Blueprint $table) {
+        Schema::create('datoshijos_docentes', function (Blueprint $table) {
+            $table->increments('cod');
             //Foraneas
             $table->string('ced_docente',25)->nullable(false);            
             $table->string('ced_hijo',25)->nullable(false);
             $table->timestamps();
 
             //Relacion
-            $table->foreign('ced_docente')->references('cedula')->on('docentes');
+            $table->foreign('ced_docente')->references('cedula')->on('docentes')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
-
-            $table->foreign('ced_hijo')->references('cedula')->on('datos_hijo');
+            $table->foreign('ced_hijo')->references('cedula')->on('datos_hijos')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 
@@ -34,6 +38,6 @@ class CreateDatoshijoDocenteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('datoshijo_docente');
+        Schema::dropIfExists('datoshijos_docentes');
     }
 }

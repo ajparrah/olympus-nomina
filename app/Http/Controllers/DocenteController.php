@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+
 
 class DocenteController extends Controller
 {
@@ -36,7 +38,9 @@ class DocenteController extends Controller
     public function store(Request $request)
     {
 
-        \App\Docente::create([
+
+
+        $datosCampos = [
         'cedula' => $request['cedula'],
         'nombres' => $request['nombres'],
         'apellidos' => $request['apellidos'],
@@ -49,8 +53,37 @@ class DocenteController extends Controller
         'edo_civil' => $request['edo_civil'],
         'carga_familiar' => $request['carga_familiar'],
         'cantidad_hijos' => $request['cantidad_hijos'],
-        ]);
-        return redirect('/datoslaborales_docente/create')->with('confirmacion','store');
+        ];
+
+        $validator = Validator::make($datosCampos, 
+            [
+
+            'cedula' => 'required',
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'tlf_local' => 'required',
+            'tlf_movil' => 'required',
+            'direccion' => 'required',
+            'email' => 'required|email',
+            'sexo' => 'required',
+            'fecha_nacimiento' => 'required',
+            'edo_civil' => 'required',
+            'carga_familiar' => 'required',
+            'cantidad_hijos' => 'required',
+            ]
+        );
+
+        //Acciones si pasa o no la validacion el formulario
+        if( $validator->fails() )
+        {
+            return redirect('/docente/create')->withErrors($validator)->withInput();
+        }
+        else
+        {
+            \App\Docente::create($datosCampos);
+            return redirect('/datoslaborales_docente/create')->with('confirmacion','cambio');
+        }
+
     }
 
     /**

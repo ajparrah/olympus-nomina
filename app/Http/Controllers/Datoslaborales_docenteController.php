@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Datoslaborales_docente;
+use Validator;
 
 class Datoslaborales_docenteController extends Controller
 {
@@ -22,36 +23,62 @@ class Datoslaborales_docenteController extends Controller
     public function create()
     {
         $docentes = \App\Docente::all(); //Variable que relaciona con el modelo, trae todo por el ::All
-        $escalafones = \App\Escalafon::all(); 
+         
         $bancos = \App\Banco::all();
-        return view('datoslaborales_docente.create', compact('docentes','escalafones','bancos'));
+        return view('datoslaborales_docente.create', compact('docentes','bancos'));
+        
     }
 
 
         public function store(Request $request)
     {
-        \App\Datoslaborales_docente::create([
+
+        $datosCampos = [
         'fecha_ingreso' => $request['fecha_ingreso'],
         'nro_cuenta' => $request['nro_cuenta'],
         'estatus' =>$request['estatus'],
+        'escalafon' =>$request['escalafon'],
         'grado_instruccion' => $request['grado_instruccion'],
         'tipo_cuenta' => $request['tipo_cuenta'],
-        'ced_docente' =>$request['ced_docente'],        
-        'cod_escalafon' => $request['cod_escalafon'],
+        'ced_docente' =>$request['ced_docente'],
         'cod_banco' =>$request['cod_banco'],   
-        ]);
-        return redirect('/datoslaborales_docente')->with('confirmacion','store');
+        ];
+
+        $validator = Validator::make($datosCampos, 
+            [
+
+            'fecha_ingreso' => 'required',
+            'nro_cuenta' => 'required',
+            'estatus' => 'required',
+            'grado_instruccion' => 'required',
+            'tipo_cuenta' => 'required',
+            'ced_docente' => 'required',
+            'escalafon' => 'required',
+            'cod_banco' => 'required',
+            ]
+        );
+
+        //Acciones si pasa o no la validacion el formulario
+        if( $validator->fails() )
+        {
+            return redirect('/datoslaborales_docente/create')->withErrors($validator)->withInput();
+        }
+        else
+        {
+            \App\Datoslaborales_docente::create($datosCampos);
+            return redirect('/datoslaborales_docente')->with('confirmacion','cambio');
+        }
+
     }
 
         public function edit($ced_docente)
     {
         $datoslaborales_docente = \App\Datoslaborales_docente::find($ced_docente);
         $docentes = \App\Docente::all();
-        $escalafons = \App\Escalafon::all();
+        
         $bancos = \App\Banco::all();
         //return view('sede.edit',compact('sedes'));
-
-        return view('datoslaborales_docente.edit', compact('datoslaborales_docente','docentes','escalafons','bancos'));
+        return view('datoslaborales_docente.edit', compact('datoslaborales_docente','docentes','bancos'));
     }
 
     public function update(Request $request, $ced_docente)

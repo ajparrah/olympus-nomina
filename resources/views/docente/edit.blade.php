@@ -30,13 +30,13 @@
                             {!!Form::label('Direccion: ')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::text('direccion',null,['class'=>'form-control', 'placeholder'=>'Direccion'])!!}
+                            {!!Form::text('direccion',null,['class'=>'form-control', 'placeholder'=>'Direccion','required'])!!}
                         </div>
                         <div class="col-lg-1">
                             {!!Form::label('C.Familiar: ')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::text('carga_familiar',null,['class'=>'form-control', 'placeholder'=>'Carga Familiar'])!!}
+                            {!!Form::text('carga_familiar',null,['class'=>'form-control', 'placeholder'=>'Carga Familiar','required'])!!}
                         </div>
                     </div>
                     <br>
@@ -46,22 +46,23 @@
                             {!!Form::label('Nombres: ')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::text('nombres',null,['class'=>'form-control', 'placeholder'=>'Nombres'])!!}
+                            {!!Form::text('nombres',null,['class'=>'form-control', 'placeholder'=>'Nombres','required'])!!}
                         </div>
                         <div class="col-lg-1">
                             {!!Form::label('Telf.Movil: ')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::text('tlf_movil',null,['class'=>'form-control', 'placeholder'=>'Ej: 0412-4444444'])!!}
+                            {!!Form::text('tlf_movil',null,['class'=>'form-control', 'placeholder'=>'Ej: 0412-4444444','required'])!!}
                         </div>
                         <div class="col-lg-1">
                             {!!Form::label('Hijos: ')!!}
                         </div>
                         <div class="col-lg-2">
-                            {!!Form::text('cantidad_hijos',null,['class'=>'form-control', 'placeholder'=>'Cant. Hijos'])!!}
+                            {!!Form::text('cantidad_hijos',null,['class'=>'form-control', 'placeholder'=>'Cant. Hijos','required'])!!}
                         </div>
+                        
                         <div class="col-lg-1" align="center">
-                            <a href="{{ route('hijos') }}" class="btn btn-primary">...</a>
+                            <a href="{{ route('datos_hijo.index') }}" class="btn btn-primary">...</a>
                         </div>
                     </div>
                     <br>
@@ -72,13 +73,13 @@
                             {!!Form::label('Apellidos: ')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::text('apellidos',null,['class'=>'form-control', 'placeholder'=>'Apellidos'])!!}
+                            {!!Form::text('apellidos',null,['class'=>'form-control', 'placeholder'=>'Apellidos','required'])!!}
                         </div>
                         <div class="col-lg-1">
                             {!!Form::label('Telf. Fijo: ')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::text('tlf_local',null,['class'=>'form-control', 'placeholder'=>'Ej: 0251-2222222'])!!}
+                            {!!Form::text('tlf_local',null,['class'=>'form-control', 'placeholder'=>'Ej: 0251-2222222','required'])!!}
                         </div>
                     </div>
                     <br>
@@ -90,7 +91,7 @@
                         </div>
                         <div class="col-lg-2">
                             <!-- Aca va un campo tipo date, el input es solamente una prueba-->
-                        {{ Form::date('fecha_nacimiento', new \DateTime(), ['class' => 'form-control']) }}
+                        {{ Form::date('fecha_nacimiento', new \DateTime(), ['class' => 'form-control','required']) }}
 
 
                         </div>
@@ -98,7 +99,7 @@
                             {!!Form::label('Edo. Civil:')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::select('edo_civil',['Soltero' => 'Soltero', 'Casado' => 'Casado', 'Divorciado' => 'Divorciado', 'Viudo' => 'Viudo'],null, ['class'=>'form-control'])!!}
+                            {!!Form::select('edo_civil',['Soltero' => 'Soltero', 'Casado' => 'Casado', 'Divorciado' => 'Divorciado', 'Viudo' => 'Viudo'],null, ['class'=>'form-control','required'])!!}
                         </div>
                          
                        
@@ -106,7 +107,7 @@
                             {!!Form::label('Correo:')!!}
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::text('email',null,['class'=>'form-control', 'placeholder'=>'example@example.com'])!!}
+                            {!!Form::text('email',null,['class'=>'form-control', 'placeholder'=>'example@example.com','required'])!!}
                         </div>
                     </div>
                     <br>
@@ -116,7 +117,7 @@
                             <label class=" col-form-label">Sexo:</label>
                         </div>
                         <div class="col-lg-3">
-                            {!!Form::select('sexo',['Masculino' => 'Masculino', 'Femenino' => 'Femenino'],null, ['class'=>'form-control'])!!}
+                            {!!Form::select('sexo',['Masculino' => 'Masculino', 'Femenino' => 'Femenino'],null, ['class'=>'form-control','required'])!!}
                         </div>
                     </div>
                     <br>
@@ -126,7 +127,7 @@
                                 {!!Form::submit('Guardar',['class'=>'btn btn-danger'])!!}
 
 
-                                {!!Html::decode(link_to_route('datoslaborales_docente.edit', '<button type="button" class="btn btn-danger btn-sm">Datos Laborales</button>', $docente->cedula))!!}
+                                {!!Html::decode(link_to_route('datoslaborales_docente.edit', '<button type="button" class="btn btn-danger">Datos Laborales</button>', $docente->cedula))!!}
                             </div>
                         </div>     
 

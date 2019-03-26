@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 
 class SedeController extends Controller
 {
@@ -35,12 +36,34 @@ class SedeController extends Controller
      */
     public function store(Request $request)
     {
-
-        \App\Sede::create([
+        $datosCampos = [
         'nombre' => $request['nombre'],
         'direccion' => $request['direccion'],
-        ]);
-        return redirect('/sede')->with('confirmacion','store');
+        ];
+
+        $validator = Validator::make($datosCampos, 
+            [
+            //'Nombre del campo'=> 'Validacion',
+            //Ejemplo
+            'nombre' => 'required',
+            'direccion' => 'required'
+            ]
+        );
+
+        //Acciones si pasa o no la validacion el formulario
+        if( $validator->fails() )
+        {
+        //return redirect('Url');
+            //EJEMPLO
+            return redirect('/sede/create')->withErrors($validator)->withInput();
+        }
+        else
+        {
+            \App\Sede::create($datosCampos);
+            return redirect('/sede')->with('confirmacion','cambio');
+        }
+
+        
     }
 
     /**

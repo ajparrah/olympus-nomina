@@ -10,6 +10,17 @@
                 </div>
                 <br>
                 <div class="container">
+                    @if( count($errors) )
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>ERROR:</strong> @foreach ( $errors->all() as $error)
+                                    [{{$error}}],
+                                @endforeach
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+
 
                     {!! Form::open(['route' => 'sede.store', 'method'=>'POST']) !!}
                         
@@ -21,7 +32,7 @@
                                 
                             </div>
                             <div class="col-3">
-                                {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Nombre'])!!}
+                                {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Nombre','required'])!!}
                                 
                             </div>
                         </div>
@@ -32,7 +43,7 @@
                                     {!!Form::label('Direccion: ')!!}
                                 </div>
                                 <div class="col-3">
-                                    {!! Form::textarea('direccion', null, ['class' => 'form-control', 'rows' => 4, 'cols' => 54, 'placeholder'=>'Direccion']) !!}
+                                    {!! Form::textarea('direccion', null, ['class' => 'form-control', 'rows' => 4, 'cols' => 54, 'placeholder'=>'Direccion','required']) !!}
                                 </div>
                         </div> 
                         <br>

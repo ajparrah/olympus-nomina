@@ -19,7 +19,9 @@
     -->
     <!-- Fonts -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     
 </head>
 
@@ -158,7 +160,37 @@
 
     {!!Html::script('js/jquery.js')!!}
     {!!Html::script('js/bootstrap.min.js')!!}
-  
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>  
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+            $(document).ready(function() {
+             $('#tableSearch').DataTable({
+                "language": {
+                "info": "_TOTAL_ registros",
+                "search": "Buscar",
+                "paginate": {
+                    "next": "Siguiente",
+                    "previous": "Anterior",
+                },
+                "lengthMenu": 'Mostrar <select>'+
+                '<option value="10">10</option>'+
+                '<option value="50">50</option>'+
+                '<option value="100">100</option>'+
+                '</select> registros',
+                "loadingRecords":"Cargando...",
+                "processing":"Cargando...",
+                "emptyTable": "No hay datos",
+                "zeroRecords": "No hay coincidencia",
+                "infoEmpty": "",
+                "infoFiltered": "",
+             }});
+             
+            });
+
+        </script>
+
+        
 
 	<!--
     <script type="text/javascript" src="js/jquery.js"></script>

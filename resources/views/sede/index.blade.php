@@ -1,16 +1,17 @@
-@extends('header')
+@extends('menu')
 <?php $confirmacion=Session::get('confirmacion') ?>
-@section('lista')
+@section('seccion')
 
-    <body>
-    <br>
-           <h2 class="text-center">LISTA DE SEDES</h2>
-        <div class="container">
- 
-
-
-                                <div class="container" align="center">
-                                    <a href="{{ route('sede.create') }}" class="btn btn-danger" style="width:180px">Agregar</a>
+           <!--COLUMNA A MODIFICAR-->
+           
+            <div class="col-lg-10">
+                <h2 class="text-center">LISTADO DE SEDES</h2>
+                <br>
+                <div class="container">
+                    <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12" align="right">
+                                    <a href="{{ route('sede.create') }}" class="btn btn-danger">Agregar</a>
                                 </div>                               
                             </div>
                             
@@ -25,71 +26,53 @@
                                 </button>
                             </div>
                         @endif
-
-
-
-
-
-
-            <table id="sedes" class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th class="text-center">Nombre</th>
-                        <th class="text-center">Direccion</th>               
-                        <th width="160px" class="text-center"><i class="fas fa-cog"></i></th>  
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach ($sedes as $sede)
-                        <tr>
-                            <td class="text-center">{{ $sede->nombre }}</td>
-                            <td class="text-center">{{ $sede->direccion }}</td> 
-                            <td>    
+                    
+                        <table class="table table-striped table-bordered" id="tableSearch">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" width="30%">Nombre</th>
+                                    <th scope="col" width="55%">Direccion</th> 
+                                    <th scope="col" width="15%"><i class="fas fa-cog"></i></th>                                     
+                                </tr>
+                            </thead>
+                            <!--Recorriendo la base de datos-->
+                            
+                            <tbody>
+                            @foreach ($sedes as $sede)    
+                                <tr>
+                                    <th scope="row">{{ $sede->nombre }}</th>
+                                    <td>{{ $sede->direccion }}</td>                       
+                                    <td>    
                                         
                                         {!! Form::open(['route' => ['sede.destroy', $sede->cod], 'method'=>'DELETE']) !!}
                                             {!!Html::decode(link_to_route('sede.edit', '<i class="fas fa-pencil-alt"></i>', $sede -> cod, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
 
                                             {!!Form::submit('X',['class'=>'btn btn-danger'])!!}
                                         {!! Form::close()!!}
+
                                     </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                                </tr> 
+                            @endforeach                           
+                            </tbody>
+                            
 
-        <br>
-        
-        <div class="container">
-            <a href="{{ route('principal') }}" class="btn btn-primary">Atras</a>
-        </div>
+                        </table>
 
-        <script>
-            $(document).ready(function() {
-             $('#sedes').DataTable({
-                "language": {
-                "info": "_TOTAL_ registros",
-                "search": "Buscar",
-                "paginate": {
-                    "next": "Siguiente",
-                    "previous": "Anterior",
-                },
-                "lengthMenu": 'Mostrar <select>'+
-                '<option value="10">10</option>'+
-                '<option value="50">50</option>'+
-                '<option value="100">100</option>'+
-                '</select> registros',
-                "loadingRecords":"Cargando...",
-                "processing":"Cargando...",
-                "emptyTable": "No hay datos",
-                "zeroRecords": "No hay coincidencia",
-                "infoEmpty": "",
-                "infoFiltered": "",
-             }});
-             
-            });
+                        <div class="row">
 
-        </script>
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-12" align="left">
+                                        <a href="{{ route('principal') }}" class="btn btn-danger">Atras</a>
+                                    </div>                               
+                                                                    
+                                </div>
+                                
+                            </div>                       
+
+                    
+                        
+                        
+                         </div>
 
 @endsection

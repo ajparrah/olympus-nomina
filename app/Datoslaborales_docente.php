@@ -2,7 +2,6 @@
 
 namespace App;
 use App\docente;
-use App\escalafon;
 use App\banco;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,20 +13,16 @@ class Datoslaborales_docente extends Model
     //protected $incrementing = 'false'; //Como no auotincrementa la clave primaria, se establece false
     //protected $keyType = 'string'; //Como no es entera autoincremental la clave primaria, se menciona el tipo
 
-    protected $fillable = ['fecha_ingreso', 'nro_cuenta','estatus','grado_instruccion','tipo_cuenta','ced_docente','cod_escalafon','cod_banco'];
+    protected $fillable = ['fecha_ingreso', 'nro_cuenta','estatus','grado_instruccion','tipo_cuenta','ced_docente','escalafon','cod_banco'];
 
 
     //Relacion con el modelo de Decanato
 
     public function docente()
     {
-    	return $this->belongsTo('App\Docente', 'ced_docente'); 
+        return $this->belongsTo('App\Docente', 'ced_docente'); 
     }
 
-    public function escalafon()
-    {
-        return $this->belongsTo('App\Escalafon', 'cod_escalafon'); 
-    }
 
         public function banco()
     {

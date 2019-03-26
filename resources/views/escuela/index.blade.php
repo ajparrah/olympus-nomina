@@ -1,16 +1,17 @@
-@extends('header')
+@extends('menu')
 <?php $confirmacion=Session::get('confirmacion') ?>
-@section('lista')
+@section('seccion')
 
-    <body>
-    <br>
-           <h2 class="text-center">LISTA DE ESCUELAS</h2>
-        <div class="container">
- 
-
-
-                                <div class="container" align="center">
-                                    <a href="{{ route('escuela.create') }}" class="btn btn-danger" style="width:180px">Agregar</a>
+           <!--COLUMNA A MODIFICAR-->
+           
+            <div class="col-lg-10">
+                <h2 class="text-center">LISTADO DE ESCUELAS</h2>
+                <br>
+                <div class="container">
+                    <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12" align="right">
+                                    <a href="{{ route('escuela.create') }}" class="btn btn-danger">Agregar</a>
                                 </div>                               
                             </div>
                             
@@ -25,76 +26,57 @@
                                 </button>
                             </div>
                         @endif
-
-
-
-
-
-
-            <table id="escuelas" class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th class="text-center">Nombre</th>
-                        <th class="text-center">Director</th>
-                        <th class="text-center">Decanato</th>  
-                        <th class="text-center">Sede</th>             
-                        <th width="160px" class="text-center"><i class="fas fa-cog"></i></th>  
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach ($escuelas as $escuela)
-                        <tr>
-                            <td class="text-center">{{$escuela->nombre}}</td>
-                            <td class="text-center">{{$escuela->director}}</td> 
-                            <td class="text-center">{{$escuela->decanato->nombre}}</td>
-                            <td class="text-center">{{$escuela->decanato->sede->nombre}}</td>
-                         <td>                              
+                    
+                        <table class="table table-striped table-bordered" id="tableSearch">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" width="25%">Nombre</th>
+                                    <th scope="col" width="20%">Director</th> 
+                                    <th scope="col" width="20%">Decanato</th>
+                                    <th scope="col" width="20%">Sede</th>
+                                    <th scope="col" width="15%"><i class="fas fa-cog"></i></th>                                     
+                                </tr>
+                            </thead>
+                            <!--Recorriendo la base de datos-->
+                            
+                            <tbody>
+                            @foreach ($escuelas as $escuela)    
+                                <tr>
+                                    <th scope="row">{{$escuela->nombre}}</th>
+                                    <td>{{$escuela->director}}</td>                       
+                                    <td>{{$escuela->decanato->nombre}}</td>
+                                    <td>{{$escuela->decanato->sede->nombre}}</td>
+                                    <td>    
+                                        
                                         {!! Form::open(['route' => ['escuela.destroy', $escuela->cod], 'method'=>'DELETE']) !!}
                                             {!!Html::decode(link_to_route('escuela.edit', '<i class="fas fa-pencil-alt"></i>', $escuela -> cod, ['class' => 'btn btn-primary' ,'title'=>'Editar']))!!}
 
                                             {!!Form::submit('X',['class'=>'btn btn-danger'])!!}
                                         {!! Form::close()!!}
-                                
-                
+
                                     </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                                </tr> 
+                            @endforeach                           
+                            </tbody>
+                            
 
-        <br>
-        
-        <div class="container">
-            <a href="{{ route('principal') }}" class="btn btn-primary">Atras</a>
-        </div>
+                        </table>
 
-        <script>
-            $(document).ready(function() {
-             $('#escuelas').DataTable({
-                "language": {
-                "info": "_TOTAL_ registros",
-                "search": "Buscar",
-                "paginate": {
-                    "next": "Siguiente",
-                    "previous": "Anterior",
-                },
-                "lengthMenu": 'Mostrar <select>'+
-                '<option value="10">10</option>'+
-                '<option value="50">50</option>'+
-                '<option value="100">100</option>'+
-                '</select> registros',
-                "loadingRecords":"Cargando...",
-                "processing":"Cargando...",
-                "emptyTable": "No hay datos",
-                "zeroRecords": "No hay coincidencia",
-                "infoEmpty": "",
-                "infoFiltered": "",
-             }});
-             
-            });
+                        <div class="row">
 
-        </script>
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-12" align="left">
+                                        <a href="{{ route('principal') }}" class="btn btn-danger">Atras</a>
+                                    </div>                               
+                                                                    
+                                </div>
+                                
+                            </div>                       
+
+                    
+                        
+                        
+                         </div>
 
 @endsection

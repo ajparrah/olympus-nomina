@@ -21,7 +21,7 @@
                                 
                             </div>
                             <div class="col-3">
-                                {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Nombre'])!!}
+                                {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Nombre','required'])!!}
                                 
                                 
                             </div>
@@ -33,7 +33,7 @@
                                     {!!Form::label('Direccion: ')!!}
                                 </div>
                                 <div class="col-3">
-                                    {!! Form::textarea('direccion', null, ['class' => 'form-control', 'rows' => 4, 'cols' => 54, 'placeholder'=>'Direccion']) !!}
+                                    {!! Form::textarea('direccion', null, ['class' => 'form-control', 'rows' => 4, 'cols' => 54, 'placeholder'=>'Direccion','required']) !!}
                                 </div>
                         </div> 
                         <br>

@@ -11,7 +11,16 @@
                 </div>
                 <br>
                 <div class="container">
-
+                    @if( count($errors) )
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>ERROR:</strong> @foreach ( $errors->all() as $error)
+                                    [{{$error}}],
+                                @endforeach
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
 
                     {!! Form::model($escuela, ['route' => ['escuela.update', $escuela->cod],
                      'method'=>'PUT']) !!}
@@ -22,7 +31,7 @@
                                         {!!Form::label('Nombre: ')!!}
                                     </div>
                                 <div class="col-3">
-                                    {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Escuela'])!!}
+                                    {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Escuela','required'])!!}
                                 </div>
                         </div>
                         <br>
@@ -32,7 +41,7 @@
                                 {!!Form::label('Director: ')!!}
                             </div>
                             <div class="col-3">
-                                {!!Form::text('director',null,['class'=>'form-control', 'placeholder'=>'Director'])!!}
+                                {!!Form::text('director',null,['class'=>'form-control', 'placeholder'=>'Director','required'])!!}
                             </div>
                         </div>
                         <br>
@@ -44,7 +53,7 @@
                             <div class="col-3">
                                 
                                     
-                               {!!Form::select('decanato_cod',$decanatos->pluck('nombre', 'cod'))!!}
+                               {!!Form::select('decanato_cod',$decanatos->pluck('nombre', 'cod'),null,['class'=>'form-control','required'])!!}
                                 
 
                             </div>

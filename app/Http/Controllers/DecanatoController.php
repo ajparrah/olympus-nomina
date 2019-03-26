@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Decanato;
+use Validator;
 
 class DecanatoController extends Controller
 {
@@ -38,12 +39,33 @@ class DecanatoController extends Controller
      */
     public function store(Request $request)
     {
-        \App\Decanato::create([
+
+        $datosCampos = [
         'nombre' => $request['nombre'],
         'nombre_decano' => $request['decano'],
         'cod_sede' =>$request['cod_sede'],
-        ]);
-        return redirect('/decanato')->with('confirmacion','store');
+        ];
+
+        $validator = Validator::make($datosCampos, 
+            [
+
+            'nombre' => 'required',
+            'nombre_decano' => 'required',
+            'cod_sede' => 'required'
+            ]
+        );
+
+        //Acciones si pasa o no la validacion el formulario
+        if( $validator->fails() )
+        {
+            return redirect('/decanato/create')->withErrors($validator)->withInput();
+        }
+        else
+        {
+            \App\Decanato::create($datosCampos);
+            return redirect('/decanato')->with('confirmacion','cambio');
+        }
+
     }
 
     /**

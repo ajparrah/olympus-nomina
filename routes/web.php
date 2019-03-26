@@ -34,6 +34,9 @@ Route::resource('conceptos', 'ConceptoController');
 //ESCUELA
 Route::resource('escuela', 'EscuelaController');
 
+//Hijos Docente
+Route::resource('datos_hijo', 'Datos_hijoController');
+
 
 
 //Route::get('/sedes', 'PagesController@sedes')->name('sede');

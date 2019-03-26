@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 
 class BancoController extends Controller
 {
@@ -36,13 +37,33 @@ class BancoController extends Controller
     public function store(Request $request)
     {
 
-        \App\Banco::create([
+        $datosCampos = [
         'cod' => $request['cod'],
         'nombre' => $request['nombre'],
         'contacto' => $request['contacto'],
         'descripcion' => $request['descripcion'],
-        ]);
-        return redirect('/banco')->with('confirmacion','store'); 
+        ];
+
+        $validator = Validator::make($datosCampos, 
+            [
+
+            'cod' => 'required',
+            'nombre' => 'required',
+            'contacto' => 'required',
+            'descripcion' => 'required'
+            ]
+        );
+
+        //Acciones si pasa o no la validacion el formulario
+        if( $validator->fails() )
+        {
+            return redirect('/banco/create')->withErrors($validator)->withInput();
+        }
+        else
+        {
+            \App\Banco::create($datosCampos);
+            return redirect('/banco')->with('confirmacion','cambio');
+        }
     }
 
     /**

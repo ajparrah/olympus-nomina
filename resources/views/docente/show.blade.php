@@ -59,9 +59,10 @@
                         <div class="col-lg-2">
                             {!!Form::text('cantidad_hijos',null,['class'=>'form-control-plaintext', 'placeholder'=>'Cant. Hijos', 'readonly'])!!}
                         </div>
+                        {{--}}
                         <div class="col-lg-1" align="center">
                             <a href="{{ route('hijos') }}" class="btn btn-primary">...</a>
-                        </div>
+                        </div>--}}
                     </div>
                     <br>
 

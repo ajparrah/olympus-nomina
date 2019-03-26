@@ -15,21 +15,21 @@
                                     {!!Form::label('Codigo: ')!!}
                                         <div class="form-row">
                                             <div class="col-lg-12">
-                                                {!!Form::text('cod',null,['class'=>'form-control', 'placeholder'=>'Codigo: Ej. 01xx'])!!}
+                                                {!!Form::text('cod',null,['class'=>'form-control', 'placeholder'=>'Codigo: Ej. 01xx','required'])!!}
                                             </div>
                                         </div>                    
                                 </div>
                                 <div class="form-group">
                                     {!!Form::label('Nombre: ')!!}
-                                    {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Nombre del Banco'])!!}
+                                    {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Nombre del Banco','required'])!!}
                                 </div>
                                 <div class="form-group">
                                     {!!Form::label('Contacto: ')!!}
-                                    {!!Form::text('contacto',null,['class'=>'form-control', 'placeholder'=>'Contacto dentro del banco'])!!}
+                                    {!!Form::text('contacto',null,['class'=>'form-control', 'placeholder'=>'Contacto dentro del banco','required'])!!}
                                 </div>                               
                                 <div class="form-group">
                                     {!!Form::label('Descripcion: ')!!}
-                                    {!!Form::text('descripcion',null,['class'=>'form-control', 'placeholder'=>'Detalles del banco'])!!} 
+                                    {!!Form::text('descripcion',null,['class'=>'form-control', 'placeholder'=>'Detalles del banco','required'])!!} 
                                 </div>
                                 <div class="form-row">
                                     <div class="col-lg-3" align="center">
